@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 api.nvim_set_keymap('!', '¶', '}', { noremap = true })
 api.nvim_set_keymap('!', '§', '[', { noremap = true })
 api.nvim_set_keymap('!', '‘', ']', { noremap = true })
-api.nvim_set_keymap('n', 'æ', '{', { noremap = true })
+api.nvim_set_keymap('!', 'æ', '{', { noremap = true })
 api.nvim_set_keymap('n', 'æ', '{', { noremap = true })
 api.nvim_set_keymap('n', '¶', '}', { noremap = true })
 api.nvim_set_keymap('n', '§', '[', { noremap = true })
@@ -44,7 +44,7 @@ keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- o
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set("n", "<leader>tb", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- Visual mode
 keymap.set("v", ">", ">gv", { desc = "Indent - Left (Visual mode)" })
@@ -69,6 +69,8 @@ keymap.set('n', '<leader>ff', ":Telescope find_files <cr>", {desc="Telescope: [F
 keymap.set('n', '<leader>fg', ":Telescope live_grep <cr>", {desc="Telescope: [F]ile [G]rep"})
 keymap.set('n', '<leader>fb', ":Telescope buffers <cr>", {desc="Telescope: [F]ile [B]uffers"})
 keymap.set('n', '<leader>fh', ":Telescope help_tags <cr>", {desc="Telescope: [F]ile [H]elp Tags"})
+keymap.set('n', '<leader>fs', ":Telescope current_buffer_fuzzy_find <cr>", {desc="Telescope: [F]ile [S]earch"})
+keymap.set('n', '<leader>fo', ":Telescope oldfiles <cr>", {desc="Telescope: [F]ile [O]ld"})
 
 -- nvim-maximaizer
 keymap.set("n", "<leader>m", ":MaximizerToggle <cr>", { desc = "Max/Min splitview" })
