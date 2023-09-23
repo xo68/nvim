@@ -1,75 +1,100 @@
+
 <h1 align="center"> NeoVim / nvim </h1>
 
-## About
+<div align="center">
+
+[![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)](http://www.lua.org)
+[![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)](https://neovim.io/)
+
+</div>
+
+## Objectives
 
 <img align="right" width="40%" src="examples/capture_main.jpg" alt="Screenshot">
 
-The purpose of this repository is
-- To store my configuration
-- To make it available for re-use and learning purpose
-- To keep track of my NVim journey and learnings
+- Store my configuration
+- Make it available for re-use and learning purpose
+- Keep track of my NVim journey and learnings
 
 
 ## Sample of key plugins 
 
- - Lazy (Plugins manager for NeoVim)
- - Mason (Plugins manager for Linter, LSP, DAP, etc.)
- - Telescope, TreeSitter, Harpoon
- - Comment, LuaSnip-cmp, Dressing, Autoclose
- - Lualine, Luatab
- - nvim-dap, nvim-dap-ui
- - nvim-lspconfig, nvim-cmp 
+- Lazy (Plugins manager for NeoVim)
+- Mason (Plugins manager for Linter, LSP, DAP, etc.)
+- Telescope, TreeSitter, Harpoon
+- Comment, LuaSnip-cmp, Dressing, Autoclose
+- Lualine, Luatab
+- nvim-dap, nvim-dap-ui
+- nvim-lspconfig, nvim-cmp 
+
+## Table of contents
+- [My custom configuration](#my-custom-configuration)
+    - [NvimTree specific (Tree)](#nvimtree-specific)
+    - [CMP specific (Completion)](#cmp-specific-completion)
+    - [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
+- [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
+    - [Mode switching & basics](#mode-switching--basics)
+    - ['Command' mode](#command-mode)
+    - ['Normal' mode - Navigation](#normal-mode---navigation)
+    - ['Normal' mode - Editing](#normal-mode---editing)
+    - ['Normal' or 'Visual' mode - Text manipulation](#normal-or-visual-mode---text-manipulation)
 
 ## My custom configuration
 
-<i>In my configuration \<Leader\> is the space bar </i>
+- \<Leader\> is mapped to space bar
+- \<Option\> is the macbook  option key
 
-| Plugin            | Shortcut          | Mode          | Description                                                              |
+| Required Plugin   | Shortcut          | Mode          | Description                                                              |
 |-------------------|-------------------|---------------|--------------------------------------------------------------------------|
-|                   | `<leader>sv`      |  Normal       | Split - Vertical                                                         |
-|                   | `<leader>sh`      |  Normal       | Split - Horizonal                                                        |
-|                   | `<leader>se`      |  Normal       | Split - Equal size for all splits                                        |
-|                   | `<leader>sx`      |  Normal       | Split - Close current split view                                         |
-|                   | `<Option>h`       |  Normal       | Split resize vertical -10 (i.e. Option key from MacBook keyboard)        |
-|                   | `<Option>l`       |  Normal       | Split resize vertical +10                                                |
-|                   | `<Option>k`       |  Normal       | Split resize horizontal -10                                              |
-|                   | `<Option>h`       |  Normal       | Split resize horizontal +10                                              |
-|                   | `<leader>to`      |  Normal       | Tab Open - New tab                                                       |
-|                   | `<leader>tx`      |  Normal       | Tab Close                                                                |
-|                   | `<leader>tn`      |  Normal       | Tab Next                                                                 |
-|                   | `<leader>tp`      |  Normal       | Tab Previous                                                             |
-|                   | `<leader>tb`      |  Normal       | Tab Buffer - Open current buffer in a new tab                            |
-|                   | `>` / `<`         |  Visual       | Indent Right / Left                                                      |
-|                   | `<Ctrl>{j\|k}`    |  Visual       | Move selected text Up / down                                             |
-|                   | `<leader>bl`      |  Normal       | Buffer - List                                                            |
-|                   | `<leader>bn`      |  Normal       | Buffer - Next                                                            |
-|                   | `<leader>bp`      |  Normal       | Buffer - Previous                                                        |
+| None              | `<leader>sv`      |  Normal       | Split - Vertical                                                         |
+| None              | `<leader>sh`      |  Normal       | Split - Horizonal                                                        |
+| None              | `<leader>se`      |  Normal       | Split - Equal size for all splits                                        |
+| None              | `<leader>sx`      |  Normal       | Split - Close current split view                                         |
+| None              | `<Option>h`       |  Normal       | Split - resize vertical -10                                              |
+| None              | `<Option>l`       |  Normal       | Split - resize vertical +10                                              |
+| None              | `<Option>k`       |  Normal       | Split - resize horizontal -10                                            |
+| None              | `<Option>h`       |  Normal       | Split - resize horizontal +10                                            |
+| None              | `<leader>to`      |  Normal       | Tab - Open a new tab                                                     |
+| None              | `<leader>tx`      |  Normal       | Tab - Close                                                              |
+| None              | `<leader>tn`      |  Normal       | Tab - Next                                                               |
+| None              | `<leader>tp`      |  Normal       | Tab - Previous                                                           |
+| None              | `<leader>tb`      |  Normal       | Tab - Open current Buffer in a new tab                                   |
+| None              | `>` / `<`         |  Visual       | Indent Right / Left                                                      |
+| None              | `<Ctrl>{j\|k}`    |  Visual       | Move selected text Up / down                                             |
+| None              | `<leader>bl`      |  Normal       | Buffer - List                                                            |
+| None              | `<leader>bn`      |  Normal       | Buffer - Next                                                            |
+| None              | `<leader>bp`      |  Normal       | Buffer - Previous                                                        |
 | Nvim-Tree         | `<leader>ee`      |  Normal       | Explorer - Toggle                                                        |
 | Nvim-Tree         | `<leader>ef`      |  Normal       | Explorer - Toggle and current file is selected                           |
 | Nvim-Tree         | `<leader>er`      |  Normal       | Explorer - Refresh                                                       |
-| Telescope         | `<leader>ff`      |  Normal       | File Find                                                                |
-| Telescope         | `<leader>fg`      |  Normal       | File Grep                                                                |
-| Telescope         | `<leader>fb`      |  Normal       | File Buffers                                                             |
-| Telescope         | `<leader>fs`      |  Normal       | File Search                                                              |
-| Telescope         | `<leader>fo`      |  Normal       | File Old (Recently opened)                                               |
-| Telescope         | `<leader>fh`      |  Normal       | Fuzzy Help Tags                                                          |
-| Maximizer         | `<leader>m`       |  Normal       | Maximize current split view                                              |
-| Nvim-LSP          | `gr`              |  Normal       | Go Reference                                                             |
-| Nvim-LSP          | `gd`              |  Normal       | Go definition                                                            |
-| Nvim-LSP          | `gD`              |  Normal       | Go References                                                            |
-| Nvim-LSP          | `gi`              |  Normal       | Go Implementation                                                        |
-| Nvim-LSP          | `gy`              |  Normal       | Go Tyoe definitions                                                      |
+| Telescope         | `<leader>ff`      |  Normal       | File - Find                                                              |
+| Telescope         | `<leader>fg`      |  Normal       | File - Grep                                                              |
+| Telescope         | `<leader>fb`      |  Normal       | File - Buffers                                                           |
+| Telescope         | `<leader>fs`      |  Normal       | File - Search                                                            |
+| Telescope         | `<leader>fo`      |  Normal       | File - Old (Recently opened)                                             |
+| Telescope         | `<leader>fh`      |  Normal       | File - Help Tags                                                         |
+| Maximizer         | `<leader>m`       |  Normal       | Maximize current spit view                                               |
+| Nvim-LSP          | `gr`              |  Normal       | Go - Reference                                                           |
+| Nvim-LSP          | `gd`              |  Normal       | Go - definition                                                          |
+| Nvim-LSP          | `gD`              |  Normal       | Go - References                                                          |
+| Nvim-LSP          | `gi`              |  Normal       | Go - Implementation                                                      |
+| Nvim-LSP          | `gy`              |  Normal       | Go - Type definitions                                                    |
 | Nvim-LSP          | `<leader>rn`      |  Normal       | Smart ReName a function accross the file                                 |
 | Nvim-LSP          | `<leader>rs`      |  Normal       | Restart LSP                                                              |
 | Nvim-LSP          | `K`               |  Normal       | Open documentation of what's under the cursor                            |
-|                   | ``      |  Normal       |                                                                          |
+| Comments          | `gcc`             |  N & V        | Comment / Un-comment the current line                                    |
+| Comments          | `gcip`            |  N & V        | Comment / Un-comment Inside Paragraph                                    |
+| Comments          | `gb`              |  N & V        | Comment / Un-comment a Block (e.g. like /* */ in C)                      |
+| Harpoon           | `<leader>hh`      |  Normal       | Harpoon - Open menu                                                      |
+| Harpoon           | `<leader>hm`      |  Normal       | Harpoon - Mark current file                                              |
+| Harpoon           | `<leader>hn`      |  Normal       | Harpoon - Go to the next Mark                                            |
+| Harpoon           | `<leader>ho`      |  Normal       | Harpoon - Go to the previous Mark                                        |
 
-Shortcut in Insert mode....
+### NvimTree specific
 
-## NvimTree specific
 <img align="right" width="30%" src="examples/capture_tree.jpg" alt="Screenshot">
 
-Navigating in NvimTree (mainly default settings)
+Navigating in NvimTree (mainly default settings) </br>
 - ctrl-t     = Open file in new tab </br>
 - ctrl-v     = Open in vertical split </br>
 - ctrl-x     = Open in horizontal split </br>
@@ -78,7 +103,7 @@ Navigating in NvimTree (mainly default settings)
 - a          = Create a new file / folder </br>
 - d          = Delete a file or folder </br>
 
-## CMP Specific (completion)
+### CMP Specific (completion)
 <img align="right" width="30%" src="examples/capture_cmp.jpg" alt="Screenshot">
 
 Completion navigation (mainly default settings)
@@ -90,9 +115,22 @@ Completion navigation (mainly default settings)
 - Ctrl-e = close completion window</br>
 - Enter = confirm</br>
 
-# My cheat sheet
+### Telescope Specific (Fuzzy Finder) 
+<img align="right" width="30%" src="examples/capture_treesiter.jpg" alt="Screenshot">
 
-## Mode switching & basics
+Navigation and interaction with Telescope (mainly default settings)
+- Ctrl-h = Open in new Horizontal split</br>
+- Ctrl-v = Open in new Vertical split</br>
+- Ctrl-t = Open in a new Tab</br>
+- Ctrl-k = Scroll up</br>
+- Ctrl-l = Scroll down</br>
+
+## My cheat sheet (Standard Vim / Nvim)
+
+This is not yet another manual or cheat sheet.</br>
+The goal is to maintain here the shortcuts that I'm frequently using.
+
+### Mode switching & basics
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
@@ -104,9 +142,9 @@ Completion navigation (mainly default settings)
 | `<ctrl>v`                  | Enter Visual block mode (hilighting)                                            |
 | `esc`                      | Return to Normal mode                                                           |
 
-## 'Command' mode 
+### 'Command' mode 
 
-Enter ig <b>Command</b> mode by typing ':' in <b>Normal</b> mode
+Enter in <b>Command</b> mode by typing ':'
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
@@ -134,7 +172,7 @@ Enter ig <b>Command</b> mode by typing ':' in <b>Normal</b> mode
 | `i`                   | Ignore case                                                |
 | `c`                   | Confirm each subtitution                                   |
 
-## 'Normal' mode - Navigation
+### 'Normal' mode - Navigation
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
@@ -147,26 +185,17 @@ Enter ig <b>Command</b> mode by typing ':' in <b>Normal</b> mode
 | `[NUMBER]j` / `[NUMBER]k`  | Go Up / Down [NUMBER] lines (i.e. useful with relative line numbers)            |
 | `0` / `^`                  | Beginning of the line / First white space of the line                           |
 | `$`                        | End of the line                                                                 |
-| `%`                        | Move to matching parenthesis, bracket or brace                                  |
+| `%`                        | Move to matching parent                                                         |
 | `f{c}` / `F{c}`            | Go forward / backward to character {c}                                          |
 | `[COUNT]{` / `[COUNT]}`    | [COUNT] paragraphs backward / forward                                           |
 | `ctrl-u` / `ctrl-d`        | Half-Page Up / Down                                                             |
 | `ctrl-b` / `ctrl-f`        | Page Up / Down                                                                  |
-| `/text` / `n` / `N`        | Search for some text (i.e. can contain regexp) / n - next find / N - Previous   |
-| `*` / `#`                  | Search, next / previous for the whole word under the cursor                     | 
+| `/text` / `n` / `N`        | Search for some text (i.e. can contain regexp) / n - next / N - Previous        |
+| `*` / `#`                  | Search, next / previous for the whole word under the cursor                     |
 
 <i> The left, right, up and down arrow keys can also be used to navigate. </i>
 
-## 'Normal' or 'Visual' mode - Text manipulation 
-
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `~`                        | Toggle case of character beneath the cursor                                     |
-| `gJ` / `J`                 | Join the current line and the line beneath it with no space / keep a space      |
-| `gU` / `gu`                | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE)      |
-| `gUU` / `guu`              | Uppercase / Lowercase the entire line                                           |
-
-## 'Normal' mode - Editing
+### 'Normal' mode - Editing
 
 <p>Yank / Cut / Delete commands operate on the specified range,<br> 
     - If in <b>Visual</b> mode, that range is the highlighted text <br>
@@ -200,7 +229,7 @@ Enter ig <b>Command</b> mode by typing ':' in <b>Normal</b> mode
 | `yy`                       | Yank - Copy the entire line get and stay in Normal mode                         |
 | `yw`                       | Yank Word - Copy end of the word and stay in Normal mode                        |
 | `yiw`                      | Yank In Word - Copy current word and stay in Normal mode                        |
-| `xp`                       | Transpose current character with that to its right                              |
+| `xp`                       | Transpose current character                                                     |
 
 <p><i>
 'i': Inside
@@ -211,8 +240,15 @@ Enter ig <b>Command</b> mode by typing ':' in <b>Normal</b> mode
 - 'p': Paragraph
 </i></p>
 
-## Insert Mode
+### 'Normal' or 'Visual' mode - Text manipulation 
 
-## Debugging
+| Shortcut                   | Description                                                                     |
+|----------------------------|---------------------------------------------------------------------------------|
+| `~`                        | Toggle case of character beneath the cursor                                     |
+| `gJ` / `J`                 | Join the current line and the line beneath it with no space / keep a space      |
+| `gU` / `gu`                | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE)      |
+| `gUU` / `guu`              | Uppercase / Lowercase the entire line                                           |
 
-<h3>Coming...</h3>
+### Insert Mode
+
+<h3>Coming....</h3>

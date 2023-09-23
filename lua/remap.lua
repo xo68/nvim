@@ -80,7 +80,7 @@ keymap.set("n", "<leader>m", ":MaximizerToggle <cr>", { desc = "Max/Min splitvie
 -- gd         -> Go definitions
 -- gD         -> Go References
 -- gi         -> Go Implementation
--- gt         -> Go Type definitions
+-- gy         -> Go Type definitions
 -- <leader>rn -> Smart rename
 -- <leader>rs -> restart LSP 
 -- K          -> Documentation what's under cursor

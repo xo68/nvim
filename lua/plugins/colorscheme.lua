@@ -10,11 +10,8 @@ return {
     "shaunsingh/solarized.nvim",
     "AlexvZyl/nordic.nvim",
     "tanvirtin/monokai.nvim",
-    "Mofiqul/dracula.nvim",
     "EdenEast/nightfox.nvim",
-    "savq/melange-nvim",
     "sainnhe/sonokai",
-    "neanias/everforest-nvim",
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
