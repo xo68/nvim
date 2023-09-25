@@ -129,6 +129,35 @@ return {
         lspconfig["clangd"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            settings = {
+                clangd = {
+                    init_options = {
+                        usePlaceholders = true,
+                        completeUnimported = true,
+                        clangdFileStatus = true,
+                    }
+                }
+            }
+        })
+
+        -- configure go server
+        lspconfig["gopls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                gopls = {
+                    gofumpt = true,
+                    staticcheck = true,
+                    usePlaceholders = true,
+                    completeUnimported = true, -- Auto import packages
+                    analyses = {
+                        nilness = true,
+                        unusedparams = true,
+                        unusedwrite = true,
+                        useany = true,
+                    },
+                }
+            }
         })
 
         -- configure lua server (with special settings)

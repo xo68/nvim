@@ -22,11 +22,7 @@ return {
                 completeopt = "menu,menuone,preview,noselect",
             },
             snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end,
-            },
-            mapping = cmp.mapping.preset.insert({
+                expand = function(args) luasnip.lsp_expand(args.body) end, }, mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
                 ["<C-u>"] = cmp.mapping.scroll_docs(-6),

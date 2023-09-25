@@ -11,6 +11,7 @@ opt.updatetime = 50
 opt.mouse = 'a'
 
 -- Enable few stuffs
+opt.swapfile = true
 opt.number = true
 opt.relativenumber = true
 opt.expandtab = true -- True -> Use sapces and not tabs 
@@ -29,5 +30,4 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Disable few stuffs
 opt.wrap = false
-opt.swapfile = false
 opt.hlsearch = false --No highlights of search

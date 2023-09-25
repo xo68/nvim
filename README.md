@@ -14,10 +14,9 @@
 
 - Store my configuration
 - Make it available for re-use and learning purpose
-- Keep track of my NVim journey and learnings
+- Keep track of my NVim journey
 
-
-## Sample of key plugins 
+## Sample of key plugins
 
 - Lazy (Plugins manager for NeoVim)
 - Mason (Plugins manager for Linter, LSP, DAP, etc.)
@@ -33,16 +32,19 @@
     - [CMP specific (Completion)](#cmp-specific-completion)
     - [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
 - [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
-    - [Mode switching & basics](#mode-switching--basics)
+    - [Mode switching](#mode-switching)
     - ['Command' mode](#command-mode)
     - ['Normal' mode - Navigation](#normal-mode---navigation)
     - ['Normal' mode - Editing](#normal-mode---editing)
-    - ['Normal' or 'Visual' mode - Text manipulation](#normal-or-visual-mode---text-manipulation)
+    - ['Normal' model 'g' shortcuts](#normal-mode-g-shortcuts)
+    - ['Insert' mode](#insert-mode)
 
 ## My custom configuration
 
 - \<Leader\> is mapped to space bar
 - \<Option\> is the macbook  option key
+
+> Configuration file: [lua/remap.lua](lua/remap.lua)
 
 | Required Plugin   | Shortcut          | Mode          | Description                                                              |
 |-------------------|-------------------|---------------|--------------------------------------------------------------------------|
@@ -73,6 +75,7 @@
 | Telescope         | `<leader>fs`      |  Normal       | File - Search                                                            |
 | Telescope         | `<leader>fo`      |  Normal       | File - Old (Recently opened)                                             |
 | Telescope         | `<leader>fh`      |  Normal       | File - Help Tags                                                         |
+| Telescope         | `<leader>fm`      |  Normal       | File - Marks                                                             |
 | Maximizer         | `<leader>m`       |  Normal       | Maximize current spit view                                               |
 | Nvim-LSP          | `gr`              |  Normal       | Go - Reference                                                           |
 | Nvim-LSP          | `gd`              |  Normal       | Go - definition                                                          |
@@ -130,7 +133,7 @@ Navigation and interaction with Telescope (mainly default settings)
 This is not yet another manual or cheat sheet.</br>
 The goal is to maintain here the shortcuts that I'm frequently using.
 
-### Mode switching & basics
+### Mode switching
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
@@ -148,9 +151,10 @@ Enter in <b>Command</b> mode by typing ':'
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
-| `:q`                       | 'Quit'                                                                          |
+| `:q`                       | 'Quit' - will fail in case of unsaved changes                                   |
 | `:q!`                      | 'Quit' - Force Quit (Discard unsaved changes)                                   |
 | `:w`                       | 'Write' - Save current file                                                     |
+| `:wa`                      | 'Write all' - Save all open files                                               |
 | `:wq` / `:x`               | 'Write & Quit' - Save current file & Quit                                       |
 | `:e filename`              | 'Edit' - Open filename in current buffer                                        |
 | `:[RANGE]s/FOO/BAR/[FLAGS]`| 'Substitue' FOO with BAR for the current line                                   |
@@ -185,13 +189,18 @@ Enter in <b>Command</b> mode by typing ':'
 | `[NUMBER]j` / `[NUMBER]k`  | Go Up / Down [NUMBER] lines (i.e. useful with relative line numbers)            |
 | `0` / `^`                  | Beginning of the line / First white space of the line                           |
 | `$`                        | End of the line                                                                 |
-| `%`                        | Move to matching parent                                                         |
+| `%`                        | Move to matching parenthesis, bracket or curly brace                            |
 | `f{c}` / `F{c}`            | Go forward / backward to character {c}                                          |
+| `t{c}` / `T{c}`            | Go towards next / previous occurence of character {c} & stop before             |
+| `;` / `,`                  | Repeat previous f, F, t, or T movement forwards                                 |
 | `[COUNT]{` / `[COUNT]}`    | [COUNT] paragraphs backward / forward                                           |
 | `ctrl-u` / `ctrl-d`        | Half-Page Up / Down                                                             |
 | `ctrl-b` / `ctrl-f`        | Page Up / Down                                                                  |
-| `/text` / `n` / `N`        | Search for some text (i.e. can contain regexp) / n - next / N - Previous        |
-| `*` / `#`                  | Search, next / previous for the whole word under the cursor                     |
+| `/text` / `n` / `N`        | Search - Search text (i.e. can contain regexp) / n - next / N - Previous        |
+| `*` / `#`                  | Search - Next / previous for the whole word under the cursor                    |
+| `m{c}`                     | Mark - Save current location in register {c}                                    |
+| `'{c}`                     | Mark - Go to the mark saved in register {c}                                     |
+| `[COUNT]gt` / `gT`         | Go to tab page [COUNT]                                                          |
 
 <i> The left, right, up and down arrow keys can also be used to navigate. </i>
 
@@ -230,6 +239,8 @@ Enter in <b>Command</b> mode by typing ':'
 | `yw`                       | Yank Word - Copy end of the word and stay in Normal mode                        |
 | `yiw`                      | Yank In Word - Copy current word and stay in Normal mode                        |
 | `xp`                       | Transpose current character                                                     |
+| `.`                        | Repeat the last change that was made                                            |
+| `[COUNT]<Ctrl-a\|x>`       | Increment or Decrement the number under the cursor,optionnaly use COUNT         |
 
 <p><i>
 'i': Inside
@@ -240,15 +251,24 @@ Enter in <b>Command</b> mode by typing ':'
 - 'p': Paragraph
 </i></p>
 
-### 'Normal' or 'Visual' mode - Text manipulation 
+### 'Normal' mode 'g' shortcuts
 
 | Shortcut                   | Description                                                                     |
 |----------------------------|---------------------------------------------------------------------------------|
-| `~`                        | Toggle case of character beneath the cursor                                     |
+| `gj` / `gk`                | Move up/down in case of text spanning over multiple lines                       |
+| `g$` / `g0`/ `g^`          | Same as existing navigation shortcuts but operating for spanning text           |
+| `gqq`                      | Transform spanning text to seperate lines                                       |
 | `gJ` / `J`                 | Join the current line and the line beneath it with no space / keep a space      |
 | `gU` / `gu`                | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE)      |
+| `g~`                       | Switching capitalization                                                        |
 | `gUU` / `guu`              | Uppercase / Lowercase the entire line                                           |
+| `gf`                       | Open the file under the cursor in nvim                                          |
+| `gv`                       | Jump back to previouly seclected text and go back into 'Visual' mode            |
+| `g&`                       | Execute the previous substituion accross the entire file                        |
 
-### Insert Mode
+## Insert Mode
 
-<h3>Coming....</h3>
+| Shortcut                   | Description                                                       |
+|----------------------------|-------------------------------------------------------------------|
+| `<Ctrl-o> {Command}`       | Execute a command in Insert mode                                  |
+

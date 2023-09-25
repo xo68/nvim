@@ -34,6 +34,7 @@ return {
                     "prismals",
                     "pyright", -- python
                     "clangd", -- C, C++, etc.
+                    "gopls", -- Go
                 },
                 -- auto-install configured servers (with lspconfig)
                 -- automatic_installation = true, -- not the same as ensure_installed
