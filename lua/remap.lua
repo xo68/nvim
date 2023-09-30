@@ -3,15 +3,6 @@ local api = vim.api
 vim.g.mapleader = " "
 
 -- MacBook Swiss Keyboard remapping, test mac key with $sed -n l
--- Insert, Normal & cmd-line mode
-api.nvim_set_keymap('!', '¶', '}', { noremap = true })
-api.nvim_set_keymap('!', '§', '[', { noremap = true })
-api.nvim_set_keymap('!', '‘', ']', { noremap = true })
-api.nvim_set_keymap('!', 'æ', '{', { noremap = true })
-api.nvim_set_keymap('n', 'æ', '{', { noremap = true })
-api.nvim_set_keymap('n', '¶', '}', { noremap = true })
-api.nvim_set_keymap('n', '§', '[', { noremap = true })
-api.nvim_set_keymap('n', '‘', ']', { noremap = true })
 keymap.set("n", "è", "<C-]>") -- Easier navigation in help
 
 -- Default vim explorer
@@ -28,12 +19,6 @@ keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) --
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
-
--- Resize split view (Mac keyboard)
-keymap.set("n", "ª", ":vertical resize -10 <cr>") -- Mac <Option-h> key
-keymap.set("n", "¬", ":vertical resize +10 <cr>") -- Mac <Option-l> key
-keymap.set("n", "∆", ":resize -10 <cr>") -- Mac <Option-k> key
-keymap.set("n", "º", ":resize +10 <cr>") -- Mac <Option-j> key
 
 -- TAB window management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
