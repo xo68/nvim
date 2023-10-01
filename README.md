@@ -92,6 +92,8 @@
 | Harpoon           | `<leader>hm`      |  Normal       | Harpoon - Mark current file                                              |
 | Harpoon           | `<leader>hn`      |  Normal       | Harpoon - Go to the next Mark                                            |
 | Harpoon           | `<leader>ho`      |  Normal       | Harpoon - Go to the previous Mark                                        |
+| Conform           | `<leader>cf`      |  N & V        | Conform - Trigger Formatter                                              |
+| Linting           | `<leader>l`       |  Normal       | Linter  - Trigger Linting execution                                      |
 
 ### NvimTree specific
 

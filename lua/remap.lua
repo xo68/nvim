@@ -46,22 +46,43 @@ keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggl
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 
 -- Nvim-telescope
-keymap.set('n', '<leader>ff', ":Telescope find_files <cr>", {desc="Telescope: [f]ind [f]iles"})
-keymap.set('n', '<leader>fg', ":Telescope live_grep <cr>", {desc="Telescope: [f]ile [g]rep"})
-keymap.set('n', '<leader>fb', ":Telescope buffers <cr>", {desc="Telescope: [f]ile [b]uffers"})
-keymap.set('n', '<leader>fh', ":Telescope help_tags <cr>", {desc="Telescope: [f]ile [h]elp tags"})
-keymap.set('n', '<leader>fs', ":Telescope current_buffer_fuzzy_find <cr>", {desc="Telescope: [f]ile [s]earch"})
-keymap.set('n', '<leader>fo', ":Telescope oldfiles <cr>", {desc="Telescope: [f]ile [o]ld"})
-keymap.set('n', '<leader>fm', ":Telescope marks <cr>", {desc="Telescope: [f]ile [o]ld"})
+keymap.set("n", "<leader>ff", ":Telescope find_files <cr>", { desc = "Telescope: [f]ind [f]iles" })
+keymap.set("n", "<leader>fg", ":Telescope live_grep <cr>", { desc = "Telescope: [f]ile [g]rep" })
+keymap.set("n", "<leader>fb", ":Telescope buffers <cr>", { desc = "Telescope: [f]ile [b]uffers" })
+keymap.set("n", "<leader>fh", ":Telescope help_tags <cr>", { desc = "Telescope: [f]ile [h]elp tags" })
+keymap.set("n", "<leader>fs", ":Telescope current_buffer_fuzzy_find <cr>", { desc = "Telescope: [f]ile [s]earch" })
+keymap.set("n", "<leader>fo", ":Telescope oldfiles <cr>", { desc = "Telescope: [f]ile [o]ld" })
+keymap.set("n", "<leader>fm", ":Telescope marks <cr>", { desc = "Telescope: [f]ile [o]ld" })
 
 -- Nvim-maximaizer
 keymap.set("n", "<leader>m", ":MaximizerToggle <cr>", { desc = "max/min splitview" })
 
 -- Harpoon
-keymap.set("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<cr><C-l>", {desc ="Harpoon - mark file"})
-keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu() <cr><C-l>", {desc ="Harpoon - open menu"})
+keymap.set("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<cr><C-l>", { desc = "Harpoon - mark file" })
+keymap.set(
+	"n",
+	"<leader>hh",
+	":lua require('harpoon.ui').toggle_quick_menu() <cr><C-l>",
+	{ desc = "Harpoon - open menu" }
+)
 keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<cr><C-l>", { desc = "Harpoon - go to next mark" })
-keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<cr><C-l>", { desc = "Harpoon - go to previous mark" })
+keymap.set(
+	"n",
+	"<leader>hp",
+	":lua require('harpoon.ui').nav_prev()<cr><C-l>",
+	{ desc = "Harpoon - go to previous mark" }
+)
+--
+-- Formatter / Conform plugin
+keymap.set(
+	{ "n", "v" },
+	"<leader>cf",
+	':lua require("conform").format({ lsp_fallback = false, async = true, timeout_ms = 500, })<cr><C-l>',
+	{ desc = "Plug - Conform Formatter" }
+)
+
+-- Linter
+keymap.set("n", "<leader>l", ':lua require("lint").try_lint()<cr><C-l>', { desc = "Plug - Linting" })
 
 -- debugger / todo
 -- keymap.set('n', '<f5>', function() require('dap').continue() end)
