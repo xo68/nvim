@@ -34,6 +34,7 @@ return {
 					"emmet_ls",
 					"prismals",
 					"pyright", -- python
+					"pylsp", -- python
 					"clangd", -- C, C++, etc.
 					"gopls", -- Go
 				},

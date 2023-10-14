@@ -4,10 +4,11 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			python = { "pylint" },
+			python = { "flake8" },
 			c = { "cpplint" },
 			go = { "golangcilint" },
-			lua = { "luacheck" },
+			-- lua = { "luacheck" },
+			-- python = { "pylint", "flake8" },
 		}
 
 		-- Call linter when saving the file, opening a new buffer or leaving Insert

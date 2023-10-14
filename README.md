@@ -36,6 +36,7 @@
     - ['Command' mode](#command-mode)
     - ['Normal' mode - Navigation](#normal-mode---navigation)
     - ['Normal' mode - Editing](#normal-mode---editing)
+    - ['Normal' mode - Split](#normal-mode---split)
     - ['Normal' model 'g' shortcuts](#normal-mode-g-shortcuts)
     - ['Insert' mode](#insert-mode)
 
@@ -48,14 +49,16 @@
 
 | Required Plugin   | Shortcut          | Mode          | Description                                                              |
 |-------------------|-------------------|---------------|--------------------------------------------------------------------------|
-| None              | `<leader>sv`      |  Normal       | Split - Vertical                                                         |
-| None              | `<leader>sh`      |  Normal       | Split - Horizonal                                                        |
-| None              | `<leader>se`      |  Normal       | Split - Equal size for all splits                                        |
+| None              | `jk \| kj`        |  Insert       | Smart \<ESC\>                                                            |
+| None              | `<Ctrl>d\|u`      |  Normal       | Scoll Up or Down and center the cursor                                 |
+| None              | `<leader>v`       |  Normal       | Split - Vertical                                                         |
+| None              | `<leader>h`       |  Normal       | Split - Horizonal                                                        |
+| None              | `<leader>eq`      |  Normal       | Split - Equal size for all splits                                        |
 | None              | `<leader>sx`      |  Normal       | Split - Close current split view                                         |
-| None              | `<Option>h`       |  Normal       | Split - resize vertical -10                                              |
-| None              | `<Option>l`       |  Normal       | Split - resize vertical +10                                              |
-| None              | `<Option>k`       |  Normal       | Split - resize horizontal -10                                            |
-| None              | `<Option>h`       |  Normal       | Split - resize horizontal +10                                            |
+| None              | `<Option>h`       |  Normal       | Split - resize vertical -                                                |
+| None              | `<Option>l`       |  Normal       | Split - resize vertical +                                                |
+| None              | `<Option>k`       |  Normal       | Split - resize horizontal -                                              |
+| None              | `<Option>h`       |  Normal       | Split - resize horizontal +                                              |
 | None              | `<leader>to`      |  Normal       | Tab - Open a new tab                                                     |
 | None              | `<leader>tx`      |  Normal       | Tab - Close                                                              |
 | None              | `<leader>tn`      |  Normal       | Tab - Next                                                               |
@@ -92,8 +95,9 @@
 | Harpoon           | `<leader>hm`      |  Normal       | Harpoon - Mark current file                                              |
 | Harpoon           | `<leader>hn`      |  Normal       | Harpoon - Go to the next Mark                                            |
 | Harpoon           | `<leader>ho`      |  Normal       | Harpoon - Go to the previous Mark                                        |
-| Conform           | `<leader>cf`      |  N & V        | Conform - Trigger Formatter                                              |
-| Linting           | `<leader>l`       |  Normal       | Linter  - Trigger Linting execution                                      |
+| Conform           | `<leader>lf`      |  N & V        | Language Format - Trigger Formatter (Conform plugin)                     |
+| Linting           | `<leader>ll`      |  Normal       | Language Linter  - Trigger Linting execution                             |
+| Home Made         | `<leader>ld`      |  Normal       | Language Documentation - (e.g. Open pydoc for the word under the cursor) |
 
 ### NvimTree specific
 
@@ -252,6 +256,18 @@ Enter in <b>Command</b> mode by typing ':'
 - 'l': Letter
 - 'p': Paragraph
 </i></p>
+
+### 'Normal' mode - Split 
+
+| Shortcut                   | Description                                                                     |
+|----------------------------|---------------------------------------------------------------------------------|
+| `<ctrl-w>h\|j\|k\|l`       | Split - Navigate  to the split screen (hjkl)                                    |
+| `<ctrl-w>H\|J\|K\|L`       | Split - Move to the split screen (HJKL)                                         |
+| `<ctrl-w>v`                | Split - New Vertical split screen                                               |
+| `<ctrl-w>s`                | Split - New Horizontal split screen                                             |
+| `<ctrl-w>=`                | Split - Set same size for all the split screens                                 |
+| `<ctrl-w>+\|-`             | Split - Horizontal resize                                                       |
+| `<ctrl-w>>\|<`             | Split - Vertical resize                                                         |
 
 ### 'Normal' mode 'g' shortcuts
 
