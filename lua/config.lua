@@ -1,19 +1,27 @@
 local opt = vim.opt
 
--- Some settings
+-- Core settings
 -- opt.guicursor = "" -- Fat cursor
 -- opt.colorcolumn = "80"
+-- opt.showtabline = 2
 opt.laststatus = 3
 opt.tabstop = 4
 opt.softtabstop = 4
+opt.smarttab = true
 opt.shiftwidth = 4
 opt.scrolloff = 8 -- Limit scrolling and always try keep 8 lines
 opt.sidescrolloff = 8 -- Limit scrolling and always try keep 8 lines
 opt.updatetime = 50
 opt.mouse = "a"
-opt.showtabline = 2
 
--- Enable few stuffs
+-- Show indent - Why would we need a plugin for that ? :)
+opt.list = true
+opt.listchars:append("eol:↙")
+opt.listchars:append("tab:│ ")
+opt.listchars:append("lead:.")
+opt.listchars:append("leadmultispace:│   ")
+
+-- Enable bunch of good stuffs
 opt.title = false
 opt.swapfile = true
 opt.number = true
@@ -38,3 +46,13 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- Disable few stuffs
 opt.wrap = false
 opt.hlsearch = false --No highlights of search
+
+-- Diagnostic rendering & options
+vim.diagnostic.config({
+	virtual_text = false,
+	underline = false,
+	float = {
+		source = "always",
+		border = "rounded",
+	},
+})

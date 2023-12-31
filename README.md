@@ -16,6 +16,27 @@
 - Make it available for re-use and learning purpose
 - Keep track of my NVim journey
 
+## TODO
+- Move up and down with + and -
+- Beginning of the line with _
+- Go beginning or end of current paragraph
+- Validate completion selection in cmd line (Wildmenu)
+  -> Ctrl-y Accept
+  -> Clrl-e Cancel
+-> <Tab> Completion
+- Ctrl-t (for tag list (e.g. after go defiction) vs Ctrl-o (Jump List)
+- Ctrl-q (e.g. When in Telescope put all struffs in quickfilx list for navigation)
+
+- How to copy from vim to cmd line 
+  -> Yank and then <ctrl>R-0 in cmd line
+  -> Yank to a register <"ayy> will yank in register "a" <ctrl>R-a in cmd line or insert mode
+
+- Copy from Vim to clipboard -> use register + or *.
+    -> Copy an entire line <"+yy>
+
+- Add -> :lua print(vim.inspect(vim.lsp.get_active_clients()))
+- Split horizontal, put ctrl-b ?
+
 ## Sample of key plugins
 
 - Lazy (Plugins manager for NeoVim)
@@ -52,7 +73,7 @@
 | None              | `jk \| kj`        |  Insert       | Smart \<ESC\>                                                            |
 | None              | `<Ctrl>d\|u`      |  Normal       | Scoll Up or Down and center the cursor                                 |
 | None              | `<leader>v`       |  Normal       | Split - Vertical                                                         |
-| None              | `<leader>h`       |  Normal       | Split - Horizonal                                                        |
+| None              | `<leader>y`       |  Normal       | Split - Horizonal                                                        |
 | None              | `<leader>eq`      |  Normal       | Split - Equal size for all splits                                        |
 | None              | `<leader>sx`      |  Normal       | Split - Close current split view                                         |
 | None              | `<Option>h`       |  Normal       | Split - resize vertical -                                                |
@@ -98,6 +119,8 @@
 | Conform           | `<leader>lf`      |  N & V        | Language Format - Trigger Formatter (Conform plugin)                     |
 | Linting           | `<leader>ll`      |  Normal       | Language Linter  - Trigger Linting execution                             |
 | Home Made         | `<leader>ld`      |  Normal       | Language Documentation - (e.g. Open pydoc for the word under the cursor) |
+
+
 
 ### NvimTree specific
 
@@ -268,6 +291,7 @@ Enter in <b>Command</b> mode by typing ':'
 | `<ctrl-w>=`                | Split - Set same size for all the split screens                                 |
 | `<ctrl-w>+\|-`             | Split - Horizontal resize                                                       |
 | `<ctrl-w>>\|<`             | Split - Vertical resize                                                         |
+| `<ctrl-w>f`                | Split - Open the file under the cursor in a new split                           |
 
 ### 'Normal' mode 'g' shortcuts
 
@@ -280,7 +304,7 @@ Enter in <b>Command</b> mode by typing ':'
 | `gU` / `gu`                | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE)      |
 | `g~`                       | Switching capitalization                                                        |
 | `gUU` / `guu`              | Uppercase / Lowercase the entire line                                           |
-| `gf`                       | Open the file under the cursor in nvim                                          |
+| `gf`                       | Open the file under the cursor in nvim in current window                        |
 | `gv`                       | Jump back to previouly seclected text and go back into 'Visual' mode            |
 | `g&`                       | Execute the previous substituion accross the entire file                        |
 

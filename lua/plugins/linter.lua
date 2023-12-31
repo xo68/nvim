@@ -1,14 +1,18 @@
 return {
 	"mfussenegger/nvim-lint",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	config = function()
 		local lint = require("lint")
-
 		lint.linters_by_ft = {
-			python = { "flake8" },
 			c = { "cpplint" },
 			go = { "golangcilint" },
+			-- python is already handled by pyls in lsp config
+			-- python = { "mypy", "flake8" },
+			-- python = { "pylint" },
 			-- lua = { "luacheck" },
-			-- python = { "pylint", "flake8" },
 		}
 
 		-- Call linter when saving the file, opening a new buffer or leaving Insert
@@ -17,5 +21,11 @@ return {
 				lint.try_lint()
 			end,
 		})
+		vim.keymap.set(
+			"n",
+			"<leader>ll",
+			':lua require("lint").try_lint()<cr><C-l>',
+			{ desc = "Language - [l]anguage [l]inter (nvim-lint)" }
+		)
 	end,
 }

@@ -41,11 +41,11 @@ return {
 				-- auto-install configured servers (with lspconfig)
 				-- automatic_installation = true, -- not the same as ensure_installed
 			})
-
 			mason_tool_installer.setup({
 				ensure_installed = {
 					"debugpy", -- DAP python
 					"pylint", -- lint python
+					"mypy", -- lint python
 					"cpplint", -- lint c / c++
 					"golangci-lint", -- lint go
 					"luacheck", -- lint lua
