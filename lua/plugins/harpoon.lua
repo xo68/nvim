@@ -7,6 +7,23 @@ return {
 		local harpoon = require("harpoon")
 		harpoon.setup()
 
+		-- TODO: build a new function to remove item from harpoon list, from Telescope
+		--
+		-- local actions_state = require("telescope.actions.state")
+		-- local actions = require("telescope.actions")
+		-- local print_selected_entry = function(prompt_bufnr)
+		-- 	local selected_entry = actions_state.get_selected_entry()
+		-- 	vim.pretty_print(selected_entry)
+		-- 	actions.close(prompt_bufnr)
+		-- end
+		-- require("telescope.builtin").find_files({
+		-- 	attach_mappings = function(_, map)
+		-- 		map("n", "<cr>", print_selected_entry)
+		-- 		map("i", "<cr>", print_selected_entry)
+		-- 		return true
+		-- 	end,
+		-- })
+
 		local conf = require("telescope.config").values
 		local function toggle_telescope(harpoon_files)
 			local file_paths = {}

@@ -88,25 +88,27 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" }, -- lsp
-				{ name = "nvim_lua" }, -- Nvim Lua
-				{ name = "treesitter" },
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
-				{ name = "nvim_lsp_signature_help" }, -- emphasized parameters wiht completion when starting a function
+				{ name = "nvim_lsp", priority = 8 }, -- lsp
+				{ name = "nvim_lua", priority = 5 }, -- Nvim Lua
+				{ name = "treesitter", priority = 6 },
+				{ name = "luasnip", priority = 5 }, -- snippets
+				{ name = "buffer", priority = 9 }, -- text within current buffer
+				{ name = "path", priority = 5 }, -- file system paths
+				{ name = "nvim_lsp_signature_help", priority = 5 }, -- emphasized parameters wiht completion when starting a function
 			}),
 
 			-- Type of sorting of the completion
 			sorting = {
+				priority_weight = 1.0,
 				comparators = {
 					cmp.config.compare.score,
-					cmp.config.compare.offset,
-					cmp.config.compare.exact,
-					cmp.config.compare.sort_text,
-					cmp.config.compare.kind,
-					cmp.config.compare.length,
+					cmp.config.compare.locality,
 					cmp.config.compare.order,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.exact,
+					cmp.config.compare.kind,
+					cmp.config.compare.offset,
+					cmp.config.compare.length,
 				},
 			},
 

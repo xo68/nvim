@@ -16,7 +16,7 @@ opt.mouse = "a"
 
 -- Show indent - Why would we need a plugin for that ? :)
 opt.list = true
-opt.listchars:append("eol:↙")
+opt.listchars:append("eol:↩")
 opt.listchars:append("tab:│ ")
 opt.listchars:append("lead:.")
 opt.listchars:append("leadmultispace:│   ")

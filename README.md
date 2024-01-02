@@ -244,7 +244,7 @@ Enter in <b>Command</b> mode by typing ':'
 | `i` / `I`                  | 'Insert' Get into Insert mode / At the first white space of the line            |
 | `a` / `A`                  | 'Append' Get into Insert mode after the cursor / At the end of the line         |
 | `r` / `R`                  | 'Replace' Get into Replace mode for 1 character / for the entire line           |
-| `s` / `S`                  | 'Substitue' Character / Line and get into Insert mode                           |
+| ~`s` / `S`~                | ~'Substitue' Character / Line  ('s' and 'S' used by Flash plugin)               |
 | `x` / `X`                  | 'Delete' forward / backward from current character                              |
 | `u` /  `Ctrl-R`            | Undo / Redo                                                                     |
 | `o` / `O`                  | Get into Insert mode create a line below / create a line above                  |
