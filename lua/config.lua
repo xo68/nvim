@@ -1,9 +1,6 @@
 local opt = vim.opt
 
 -- Core settings
--- opt.guicursor = "" -- Fat cursor
--- opt.colorcolumn = "80"
--- opt.showtabline = 2
 opt.laststatus = 3
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -16,10 +13,10 @@ opt.mouse = "a"
 
 -- Show indent - Why would we need a plugin for that ? :)
 opt.list = true
-opt.listchars:append("eol:↩")
-opt.listchars:append("tab:│ ")
+opt.listchars:append("tab:┊ ")
 opt.listchars:append("lead:.")
-opt.listchars:append("leadmultispace:│   ")
+opt.listchars:append("leadmultispace:┊   ")
+opt.listchars:append("trail:·,")
 
 -- Enable bunch of good stuffs
 opt.title = false
@@ -49,10 +46,14 @@ opt.hlsearch = false --No highlights of search
 
 -- Diagnostic rendering & options
 vim.diagnostic.config({
-	virtual_text = false,
 	underline = false,
+	-- virtual_text = false,
+	virtual_text = {
+		severity = { min = vim.diagnostic.severity.ERROR },
+		source = true,
+	},
 	float = {
 		source = "always",
-		border = "rounded",
+		border = "double",
 	},
 })

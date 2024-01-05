@@ -7,45 +7,32 @@ return {
 		local harpoon = require("harpoon")
 		harpoon.setup()
 
-		-- TODO: build a new function to remove item from harpoon list, from Telescope
+		-- local conf = require("telescope.config").values
+		-- local function toggle_telescope(harpoon_files)
+		-- 	local file_paths = {}
+		-- 	for _, item in ipairs(harpoon_files.items) do
+		-- 		table.insert(file_paths, item.value)
+		-- 	end
 		--
-		-- local actions_state = require("telescope.actions.state")
-		-- local actions = require("telescope.actions")
-		-- local print_selected_entry = function(prompt_bufnr)
-		-- 	local selected_entry = actions_state.get_selected_entry()
-		-- 	vim.pretty_print(selected_entry)
-		-- 	actions.close(prompt_bufnr)
+		-- 	require("telescope.pickers")
+		-- 		.new({}, {
+		-- 			prompt_title = "Harpoon",
+		-- 			finder = require("telescope.finders").new_table({
+		-- 				results = file_paths,
+		-- 			}),
+		-- 			previewer = conf.file_previewer({}),
+		-- 			sorter = conf.generic_sorter({}),
+		-- 		})
+		-- 		:find()
 		-- end
-		-- require("telescope.builtin").find_files({
-		-- 	attach_mappings = function(_, map)
-		-- 		map("n", "<cr>", print_selected_entry)
-		-- 		map("i", "<cr>", print_selected_entry)
-		-- 		return true
-		-- 	end,
-		-- })
-
-		local conf = require("telescope.config").values
-		local function toggle_telescope(harpoon_files)
-			local file_paths = {}
-			for _, item in ipairs(harpoon_files.items) do
-				table.insert(file_paths, item.value)
-			end
-
-			require("telescope.pickers")
-				.new({}, {
-					prompt_title = "Harpoon",
-					finder = require("telescope.finders").new_table({
-						results = file_paths,
-					}),
-					previewer = conf.file_previewer({}),
-					sorter = conf.generic_sorter({}),
-				})
-				:find()
-		end
 
 		vim.keymap.set("n", "<leader>hl", function()
-			toggle_telescope(harpoon:list())
-		end, { desc = "Harpoon - [h]arpoon [l]ist (via Telescope)" })
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end, { desc = "Harpoon - [h]arpoon [l]ist" })
+
+		-- vim.keymap.set("n", "<leader>fH", function()
+		-- 	toggle_telescope(harpoon:list())
+		-- end, { desc = "Harpoon - [f]ind [h]arpoon list (via Telescope)" })
 
 		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():append()

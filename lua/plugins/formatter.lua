@@ -10,6 +10,7 @@ return {
 				python = { "isort", "black" },
 				go = { "gofmt", "golines" },
 				c = { "clang_format" },
+				markdown = { "prettier" },
 				-- Conform will run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				-- Use a sub-list to run only the first available formatter

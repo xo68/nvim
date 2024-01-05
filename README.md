@@ -1,5 +1,4 @@
-
-<h1 align="center"> NeoVim / nvim </h1>
+<h1 align="center"> NeoVim </h1>
 
 <div align="center">
 
@@ -14,148 +13,157 @@
 
 - Store my configuration
 - Make it available for re-use and learning purpose
-- Keep track of my NVim journey
+- Keep track of my NeoVim journey
 
-## TODO
-- Move up and down with + and -
-- Beginning of the line with _
-- Go beginning or end of current paragraph
-- Validate completion selection in cmd line (Wildmenu)
-  -> Ctrl-y Accept
-  -> Clrl-e Cancel
--> <Tab> Completion
-- Ctrl-t (for tag list (e.g. after go defiction) vs Ctrl-o (Jump List)
-- Ctrl-q (e.g. When in Telescope put all struffs in quickfilx list for navigation)
+## Backlog / Todo
 
-- How to copy from vim to cmd line 
-  -> Yank and then <ctrl>R-0 in cmd line
-  -> Yank to a register <"ayy> will yank in register "a" <ctrl>R-a in cmd line or insert mode
-
-- Copy from Vim to clipboard -> use register + or *.
-    -> Copy an entire line <"+yy>
-
-- Add -> :lua print(vim.inspect(vim.lsp.get_active_clients()))
-- Split horizontal, put ctrl-b ?
+- Nvim DAP & DAP UI for Debugging
+- Ctrl-t (for tag list (e.g. after go definition) vs Ctrl-o (Jump List)
+- TagList VS QuickFixList VS JumpList
 
 ## Sample of key plugins
 
 - Lazy (Plugins manager for NeoVim)
 - Mason (Plugins manager for Linter, LSP, DAP, etc.)
 - Telescope, TreeSitter, Harpoon
-- Comment, LuaSnip-cmp, Dressing, Autoclose
+- Comment, LuaSnip-cmp, Dressing
 - Lualine, Luatab
 - nvim-dap, nvim-dap-ui
-- nvim-lspconfig, nvim-cmp 
+- nvim-lspconfig, nvim-cmp
+- and much more...
 
 ## Table of contents
+
 - [My custom configuration](#my-custom-configuration)
-    - [NvimTree specific (Tree)](#nvimtree-specific)
-    - [CMP specific (Completion)](#cmp-specific-completion)
-    - [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
+  - [NvimTree specific (Tree)](#nvimtree-specific)
+  - [CMP specific (Completion)](#cmp-specific-completion)
+  - [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
 - [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
-    - [Mode switching](#mode-switching)
-    - ['Command' mode](#command-mode)
-    - ['Normal' mode - Navigation](#normal-mode---navigation)
-    - ['Normal' mode - Editing](#normal-mode---editing)
-    - ['Normal' mode - Split](#normal-mode---split)
-    - ['Normal' model 'g' shortcuts](#normal-mode-g-shortcuts)
-    - ['Insert' mode](#insert-mode)
+  - [Mode switching](#mode-switching)
+  - ['Command' mode](#command-mode)
+    - [Specific use cases](#specific-use-cases)
+  - ['Normal' mode - Navigation](#normal-mode---navigation)
+  - ['Normal' mode - Editing](#normal-mode---editing)
+  - ['Normal' mode - Split](#normal-mode---split)
+  - ['Normal' model 'g' shortcuts](#normal-mode-g-shortcuts)
+  - ['Insert' mode](#insert-mode)
 
 ## My custom configuration
 
 - \<Leader\> is mapped to space bar
-- \<Option\> is the macbook  option key
+- \<Option\> is the macbook option key
 
 > Configuration file: [lua/remap.lua](lua/remap.lua)
 
-| Required Plugin   | Shortcut          | Mode          | Description                                                              |
-|-------------------|-------------------|---------------|--------------------------------------------------------------------------|
-| None              | `jk \| kj`        |  Insert       | Smart \<ESC\>                                                            |
-| None              | `<Ctrl>d\|u`      |  Normal       | Scoll Up or Down and center the cursor                                 |
-| None              | `<leader>v`       |  Normal       | Split - Vertical                                                         |
-| None              | `<leader>y`       |  Normal       | Split - Horizonal                                                        |
-| None              | `<leader>eq`      |  Normal       | Split - Equal size for all splits                                        |
-| None              | `<leader>sx`      |  Normal       | Split - Close current split view                                         |
-| None              | `<Option>h`       |  Normal       | Split - resize vertical -                                                |
-| None              | `<Option>l`       |  Normal       | Split - resize vertical +                                                |
-| None              | `<Option>k`       |  Normal       | Split - resize horizontal -                                              |
-| None              | `<Option>h`       |  Normal       | Split - resize horizontal +                                              |
-| None              | `<leader>to`      |  Normal       | Tab - Open a new tab                                                     |
-| None              | `<leader>tx`      |  Normal       | Tab - Close                                                              |
-| None              | `<leader>tn`      |  Normal       | Tab - Next                                                               |
-| None              | `<leader>tp`      |  Normal       | Tab - Previous                                                           |
-| None              | `<leader>tb`      |  Normal       | Tab - Open current Buffer in a new tab                                   |
-| None              | `>` / `<`         |  Visual       | Indent Right / Left                                                      |
-| None              | `<Ctrl>{j\|k}`    |  Visual       | Move selected text Up / down                                             |
-| None              | `<leader>bl`      |  Normal       | Buffer - List                                                            |
-| None              | `<leader>bn`      |  Normal       | Buffer - Next                                                            |
-| None              | `<leader>bp`      |  Normal       | Buffer - Previous                                                        |
-| Nvim-Tree         | `<leader>ee`      |  Normal       | Explorer - Toggle                                                        |
-| Nvim-Tree         | `<leader>ef`      |  Normal       | Explorer - Toggle and current file is selected                           |
-| Nvim-Tree         | `<leader>er`      |  Normal       | Explorer - Refresh                                                       |
-| Telescope         | `<leader>ff`      |  Normal       | File - Find                                                              |
-| Telescope         | `<leader>fg`      |  Normal       | File - Grep                                                              |
-| Telescope         | `<leader>fb`      |  Normal       | File - Buffers                                                           |
-| Telescope         | `<leader>fs`      |  Normal       | File - Search                                                            |
-| Telescope         | `<leader>fo`      |  Normal       | File - Old (Recently opened)                                             |
-| Telescope         | `<leader>fh`      |  Normal       | File - Help Tags                                                         |
-| Telescope         | `<leader>fm`      |  Normal       | File - Marks                                                             |
-| Maximizer         | `<leader>m`       |  Normal       | Maximize current spit view                                               |
-| Nvim-LSP          | `gr`              |  Normal       | Go - Reference                                                           |
-| Nvim-LSP          | `gd`              |  Normal       | Go - definition                                                          |
-| Nvim-LSP          | `gD`              |  Normal       | Go - References                                                          |
-| Nvim-LSP          | `gi`              |  Normal       | Go - Implementation                                                      |
-| Nvim-LSP          | `gy`              |  Normal       | Go - Type definitions                                                    |
-| Nvim-LSP          | `<leader>rn`      |  Normal       | Smart ReName a function accross the file                                 |
-| Nvim-LSP          | `<leader>rs`      |  Normal       | Restart LSP                                                              |
-| Nvim-LSP          | `K`               |  Normal       | Open documentation of what's under the cursor                            |
-| Comments          | `gcc`             |  N & V        | Comment / Un-comment the current line                                    |
-| Comments          | `gcip`            |  N & V        | Comment / Un-comment Inside Paragraph                                    |
-| Comments          | `gb`              |  N & V        | Comment / Un-comment a Block (e.g. like /* */ in C)                      |
-| Harpoon           | `<leader>hh`      |  Normal       | Harpoon - Open menu                                                      |
-| Harpoon           | `<leader>hm`      |  Normal       | Harpoon - Mark current file                                              |
-| Harpoon           | `<leader>hn`      |  Normal       | Harpoon - Go to the next Mark                                            |
-| Harpoon           | `<leader>ho`      |  Normal       | Harpoon - Go to the previous Mark                                        |
-| Conform           | `<leader>lf`      |  N & V        | Language Format - Trigger Formatter (Conform plugin)                     |
-| Linting           | `<leader>ll`      |  Normal       | Language Linter  - Trigger Linting execution                             |
-| Home Made         | `<leader>ld`      |  Normal       | Language Documentation - (e.g. Open pydoc for the word under the cursor) |
-
-
+| Required Plugin | Shortcut       | Mode    | Description                                                   |
+| --------------- | -------------- | ------- | ------------------------------------------------------------- |
+| n/a             | `è`            | Normal  | Jump to a subject in documentation (= CTRL-] )                |
+| n/a             | `jk`or `kj`    | Insert  | Smart and fast excape \<ESC\>                                 |
+| n/a             | `<Ctrl>d\|u`   | Normal  | Scoll Up or Down and center the cursor                        |
+| n/a             | `<Ctrl>hjkl`   | Normal  | Split - Select split scrren (hjkl)                            |
+| n/a             | `<Option>hjkl` | Normal  | Split - resize vertical & horizontal                          |
+| n/a             | `<leader>sv`   | Normal  | Split - [s]plit [v]ertical                                    |
+| n/a             | `<leader>sh`   | Normal  | Split - [s]plit [h]orizontal                                  |
+| n/a             | `<leader>se`   | Normal  | Split - [s]plit [e]qual size                                  |
+| n/a             | `<leader>sc`   | Normal  | Split - [s]plit [c]lose current                               |
+| n/a             | `<leader>to`   | Normal  | Tab - [t]ab [o]pen                                            |
+| n/a             | `<leader>tc`   | Normal  | Tab - [t]ab [c]lose                                           |
+| n/a             | `<leader>tn`   | Normal  | Tab - [t]ab [n]ext                                            |
+| n/a             | `<leader>tp`   | Normal  | Tab - [t]ab [p]revious                                        |
+| n/a             | `<leader>tb`   | Normal  | Tab - [t]ab open current [b]uffer                             |
+| n/a             | `>` or `<`     | N,V     | Indent Right / Left                                           |
+| n/a             | `<Ctrl>jk`     | N,V,X   | Move selected line or block Up / down                         |
+| n/a             | `<leader>bl`   | Normal  | Buffer - [b]uffer [n]ext                                      |
+| n/a             | `<leader>bn`   | Normal  | Buffer - [b]uffer [p]revious                                  |
+| n/a             | `<leader>bp`   | Normal  | Buffer - [b]uffer [l]ist (Telescope)                          |
+| Nvim-Tree       | `<leader>ee`   | Normal  | NvimTree - [e]xplorer Toggle                                  |
+| Nvim-Tree       | `<leader>ef`   | Normal  | NvimTree - [e]xplorer Toggle for current [f]ile folder        |
+| Nvim-Tree       | `<leader>er`   | Normal  | NvimTree - [e]xplorer [r]efresh                               |
+| Telescope       | `<leader>ff`   | Normal  | Telescope: [f]ind [f]iles                                     |
+| Telescope       | `<leader>fs`   | Normal  | Telescope: [f]ile [s]earch                                    |
+| Telescope       | `<leader>/`    | Normal  | Telescope: [/] Fuzzily search in current buffer               |
+| Telescope       | `<leader>ft`   | Normal  | Telescope: [f]ind [t]odo                                      |
+| Telescope       | `<leader>fm`   | Normal  | Telescope: [f]ile [m]arks                                     |
+| Telescope       | `<leader>fM`   | Normal  | Telescope: [f]ind [M]an pages                                 |
+| Telescope       | `<leader>fg`   | Normal  | Telescope: [f]ile [g]rep                                      |
+| Telescope       | `<leader>fb`   | Normal  | Telescope: [f]ile [b]uffers                                   |
+| Telescope       | `<leader>fh`   | Normal  | Telescope: [f]ile [h]elp tags                                 |
+| Telescope       | `<leader>fo`   | Normal  | Telescope: [f]ile [o]ld files / History                       |
+| Maximizer       | `<leader>m`    | Normal  | Maximizer - [m]ax/[m]in splitview                             |
+| Nvim-LSP        | `gr`           | Normal  | LSP - [g]o [r]eferences (Show references)                     |
+| Nvim-LSP        | `gd`           | Normal  | LSP - [g]o [d]efinitions (Show definitions)                   |
+| Nvim-LSP        | `gD`           | Normal  | LSP - [g]o to [D]eclaration                                   |
+| Nvim-LSP        | `gi`           | Normal  | LSP - [g]o [i]mplementations (Show implementations)           |
+| Nvim-LSP        | `gy`           | Normal  | LSP - [g]o T[y]pe definitions                                 |
+| Nvim-LSP        | `<leader>ca`   | Normal  | LSP - [c]ode [a]ctions                                        |
+| Nvim-LSP        | `<leader>sr`   | Normal  | LSP - [s]mart [r]ename                                        |
+| Nvim-LSP        | `<leader>d`    | Normal  | LSP - [d]iagnostic (Show line diagnostics)                    |
+| Nvim-LSP        | `<leader>D`    | Normal  | LSP - [D]iagnostics (Show buffer diagnostics)                 |
+| Nvim-LSP        | `[d` or `]d`   | Normal  | LSP - Go to previous or next diagnostic                       |
+| Nvim-LSP        | `K`            | Normal  | LSP - [K] Show documentation for what is under cursor         |
+| Nvim-LSP        | `<leader>lr`   | Normal  | LSP - [l]sp [r]estart                                         |
+| Nvim-LSP        | `[[`or `]]`    | Normal  | LSP - <i>special</i> e.g jump next / previous class           |
+| Nvim-LSP        | `[m`or `]m`    | Normal  | LSP - <i>special</i> e.g jump next / previous method in class |
+| Flash           | `s`            | N, X, O | Flash - [s]earch (flash)                                      |
+| Flash           | `S`            | N, X, O | Flash - [s]earch treesitter                                   |
+| Flash           | `R`            | X, O    | Flash - [R] Treesitter (e.g. with copy or yank)               |
+| Comments        | `gco` or `gcO` | N, V    | Comment, Create a new comment below or above current line     |
+| Comments        | `gcA`          | N, V    | Comment, Create a new comment at the end of the line          |
+| Comments        | `gcc`          | N, V    | Comment / Un-comment the current line                         |
+| Comments        | `gcip`         | N, V    | Comment / Un-comment Inside Paragraph                         |
+| Comments        | `gbc`          | N, V    | Comment / Un-comment a Block (e.g. like /\* \*/ in C)         |
+| Harpoon         | `<leader>hl`   | Normal  | Harpoon - [h]arpoon [l]ist                                    |
+| Harpoon         | `<leader>ha`   | Normal  | Harpoon - [h]arpoon [a]ppend                                  |
+| Harpoon         | `<leader>hc`   | Normal  | Harpoon - [h]arpoon [c]lear list                              |
+| Harpoon         | `<leader>hr`   | Normal  | Harpoon - [h]arpoon [r]remove current item                    |
+| Harpoon         | `<leader>p`    | Normal  | Harpoon - [p]revious item                                     |
+| Harpoon         | `<leader>n`    | Normal  | Harpoon - [n]ext item                                         |
+| Conform         | `<leader>lf`   | N, V    | Language - [l]anguage [f]ormatter (Conform)                   |
+| Linting         | `<leader>ll`   | Normal  | Language - [l]anguage [l]inter (nvim-lint)                    |
+| n/a             | `<leader>li`   | Normal  | Language - [l]sp [i]nspect                                    |
 
 ### NvimTree specific
 
 <img align="right" width="30%" src="examples/capture_tree.jpg" alt="Screenshot">
 
 Navigating in NvimTree (mainly default settings) </br>
-- ctrl-t     = Open file in new tab </br>
-- ctrl-v     = Open in vertical split </br>
-- ctrl-x     = Open in horizontal split </br>
+
+- ctrl-t = Open file in new tab </br>
+- ctrl-v = Open in vertical split </br>
+- ctrl-x = Open in horizontal split </br>
 - Enter or o = Open in a new buffer </br>
-- Tab        = Open in a new buffer but stay in the Tree </br>
-- a          = Create a new file / folder </br>
-- d          = Delete a file or folder </br>
+- Tab = Open in a new buffer but stay in the Tree </br>
+- a = Create a new file / folder </br>
+- d = Delete a file or folder </br>
 
 ### CMP Specific (completion)
+
 <img align="right" width="30%" src="examples/capture_cmp.jpg" alt="Screenshot">
 
 Completion navigation (mainly default settings)
-- Ctrl-k = previous suggestion</br>
-- Ctrl-j = next suggestion</br>
-- Ctrl-u = Scroll in the documentation (-4)</br>
-- Ctrl-d = Scroll in the documentation (+4)</br>
-- Ctrl-Space = show completion suggestions</br>
-- Ctrl-e = close completion window</br>
-- Enter = confirm</br>
 
-### Telescope Specific (Fuzzy Finder) 
+- Ctrl-k / Ctrl-j = select next / previous item</br>
+- Tab / Shift + Tab = select next / previous item</br>
+- Enter = confirm</br>
+- Ctrl-u = Scroll in the documentation (up)</br>
+- Ctrl-d = Scroll in the documentation (down)</br>
+- Ctrl-Space = show completion window</br>
+- Ctrl-e = close completion window</br>
+
+### Telescope Specific (Fuzzy Finder)
+
 <img align="right" width="30%" src="examples/capture_treesiter.jpg" alt="Screenshot">
 
 Navigation and interaction with Telescope (mainly default settings)
+
 - Ctrl-h = Open in new Horizontal split</br>
 - Ctrl-v = Open in new Vertical split</br>
 - Ctrl-t = Open in a new Tab</br>
-- Ctrl-k = Scroll up</br>
-- Ctrl-l = Scroll down</br>
+- Ctrl-k / Ctrl-l = Scroll up/down</br>
+- Ctrl-u / Ctrl-d = Scroll up/down for preview</br>
+- \<Tab> & \<S-Tab> = Scroll up/down and Select</br>
+- Ctrl-q = Move selected items in quickfix list</br>
+- Enter = confirm</br>
 
 ## My cheat sheet (Standard Vim / Nvim)
 
@@ -164,153 +172,158 @@ The goal is to maintain here the shortcuts that I'm frequently using.
 
 ### Mode switching
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `i`                        | Enter Insert mode                                                               |
-| `:`                        | Enter Command mode                                                              |
-| `R`                        | Enter Replace mode                                                              |
-| `v`                        | Enter Visual mode (hilighting)                                                  |
-| `V`                        | Enter line Visual mode (hilighting)                                             |
-| `<ctrl>v`                  | Enter Visual block mode (hilighting)                                            |
-| `esc`                      | Return to Normal mode                                                           |
+| Shortcut  | Description                          |
+| --------- | ------------------------------------ |
+| `i`       | Enter Insert mode                    |
+| `:`       | Enter Command mode                   |
+| `R`       | Enter Replace mode                   |
+| `v`       | Enter Visual mode (hilighting)       |
+| `V`       | Enter line Visual mode (hilighting)  |
+| `<ctrl>v` | Enter Visual block mode (hilighting) |
+| `esc`     | Return to Normal mode                |
 
-### 'Command' mode 
+### 'Command' mode
 
 Enter in <b>Command</b> mode by typing ':'
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `:q`                       | 'Quit' - will fail in case of unsaved changes                                   |
-| `:q!`                      | 'Quit' - Force Quit (Discard unsaved changes)                                   |
-| `:w`                       | 'Write' - Save current file                                                     |
-| `:wa`                      | 'Write all' - Save all open files                                               |
-| `:wq` / `:x`               | 'Write & Quit' - Save current file & Quit                                       |
-| `:e filename`              | 'Edit' - Open filename in current buffer                                        |
-| `:[RANGE]s/FOO/BAR/[FLAGS]`| 'Substitue' FOO with BAR for the current line                                   |
-| `:sp [file]` / `:vs [file]`| Split horizontal / vertical, optionnaly add a file                              |
-| `:[+\|-][LINE]`            | Go To Line [LINE]. + or - to be used for relative lines                         |
+| Shortcut                    | Description                                        |
+| --------------------------- | -------------------------------------------------- |
+| `Ctrl-y`                    | Accept current selection (completion)              |
+| `Ctrl-e`                    | Reject current selection (completion)              |
+| `<Tab> <S-Tab>`             | Completion Up or Down                              |
+| `:q`                        | 'Quit' - will fail in case of unsaved changes      |
+| `:q!`                       | 'Quit' - Force Quit (Discard unsaved changes)      |
+| `:w`                        | 'Write' - Save current file                        |
+| `:wa`                       | 'Write all' - Save all open files                  |
+| `:wq` / `:x`                | 'Write & Quit' - Save current file & Quit          |
+| `:e filename`               | 'Edit' - Open filename in current buffer           |
+| `:[RANGE]s/FOO/BAR/[FLAGS]` | 'Substitue' FOO with BAR for the current line      |
+| `:sp [file]` / `:vs [file]` | Split horizontal / vertical, optionnaly add a file |
 
-| SUBSTITUTE RANGE  | Description                                                |
-|-------------------|------------------------------------------------------------|
-| `%`               | Entire File                                                |
-| `’<,’>'`          | Current selection, default range in visual mode            |
-| `25`              | Line 25                                                    |
-| `25,50`           | Line 25 - 50                                               |
-| `$`               | Last line; can be combined with other lines as in ‘50,$’   |
-| `.`               | Current line; can be combined with other lines as in ‘.,50’|
+| SUBSTITUTE RANGE | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `%`              | Entire File                                                 |
+| `’<,’>'`         | Current selection, default range in visual mode             |
+| `25`             | Line 25                                                     |
+| `25,50`          | Line 25 - 50                                                |
+| `$`              | Last line; can be combined with other lines as in ‘50,$’    |
+| `.`              | Current line; can be combined with other lines as in ‘.,50’ |
 
-| SUBSTITUTE FLAGS      | Description                                                |
-|-----------------------|------------------------------------------------------------|
-| `g`                   | Global, for the entire file                                |
-| `i`                   | Ignore case                                                |
-| `c`                   | Confirm each subtitution                                   |
+| SUBSTITUTE FLAGS | Description                 |
+| ---------------- | --------------------------- |
+| `g`              | Global, for the entire file |
+| `i`              | Ignore case                 |
+| `c`              | Confirm each subtitution    |
+
+#### Specific use cases
+
+> <u><b>How to copy from a buffer to cmd line ?</b></u></br>
+> Option 1 - Yank line in current buffer and then \<ctrl>R-0 in cmd line</br>
+> Option 2 - Yank line to a specific register (e.g. <"ayy> will yank in register "a"), then \<ctrl>R-"a"</br>
+
+> <u><b>How to copy from a buffer to the clipboard ?</b></u></br>
+> Option 1 - Yank to the register "+" or "\*" (e.g. <"+yy>) </br>
+> Option 2 - Using wezterm terminal, enter in copy mode with \<Ctrl> + \<Shift> + x </br>
 
 ### 'Normal' mode - Navigation
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `h` / `j` / `k` / `l`      | Move left / down / up / right                                                   |
-| `H` / `M` / `L`            | Top / Middle / Bottom line on the screen                                        |
-| `zz` / `zt` / `zb`         | Center / Top / Bottom this line                                                 |
-| `gg` / `G`                 | First line / last line of the file                                              |
-| `e` / `b` / `w`            | End of the word / Beginning of the word / Beginning of the next word            |
-| `:[+\|-][LINE]`            | Go To Line [LINE]. + or - to be used for relative lines                         |
-| `[NUMBER]j` / `[NUMBER]k`  | Go Up / Down [NUMBER] lines (i.e. useful with relative line numbers)            |
-| `0` / `^`                  | Beginning of the line / First white space of the line                           |
-| `$`                        | End of the line                                                                 |
-| `%`                        | Move to matching parenthesis, bracket or curly brace                            |
-| `f{c}` / `F{c}`            | Go forward / backward to character {c}                                          |
-| `t{c}` / `T{c}`            | Go towards next / previous occurence of character {c} & stop before             |
-| `;` / `,`                  | Repeat previous f, F, t, or T movement forwards                                 |
-| `[COUNT]{` / `[COUNT]}`    | [COUNT] paragraphs backward / forward                                           |
-| `ctrl-u` / `ctrl-d`        | Half-Page Up / Down                                                             |
-| `ctrl-b` / `ctrl-f`        | Page Up / Down                                                                  |
-| `/text` / `n` / `N`        | Search - Search text (i.e. can contain regexp) / n - next / N - Previous        |
-| `*` / `#`                  | Search - Next / previous for the whole word under the cursor                    |
-| `m{c}`                     | Mark - Save current location in register {c}                                    |
-| `'{c}`                     | Mark - Go to the mark saved in register {c}                                     |
-| `[COUNT]gt` / `gT`         | Go to tab page [COUNT]                                                          |
+| Shortcut                  | Description                                                              |
+| ------------------------- | ------------------------------------------------------------------------ |
+| `h` / `j` / `k` / `l`     | Move left / down / up / right                                            |
+| `H` / `M` / `L`           | Top / Middle / Bottom line on the screen                                 |
+| `zz` / `zt` / `zb`        | Center / Top / Bottom this line                                          |
+| `gg` / `G`                | First line / last line of the file                                       |
+| `{` / `}`                 | Jump to the next or previous empty line (i.e paragraph jump)             |
+| `[[` / `]]`               | Jump to the next or previous section                                     |
+| `e` / `b` / `w`           | End of the word / Beginning of the word / Beginning of the next word     |
+| `:[+\|-][LINE]`           | Go To Line [LINE]. + or - to be used for relative lines                  |
+| `[NUMBER]j` / `[NUMBER]k` | Go Up / Down [NUMBER] lines (i.e. useful with relative line numbers)     |
+| `0` / [`^` or `_`]        | Beginning of the line / First white space of the line                    |
+| `$`                       | End of the line                                                          |
+| `%`                       | Move to matching parenthesis, bracket or curly brace                     |
+| `f{c}` / `F{c}`           | Go forward / backward to character {c}                                   |
+| `t{c}` / `T{c}`           | Go towards next / previous occurence of character {c} & stop before      |
+| `;` / `,`                 | Repeat previous f, F, t, or T movement forward / backward                |
+| `[COUNT]{` / `[COUNT]}`   | [COUNT] paragraphs backward / forward                                    |
+| `ctrl-u` / `ctrl-d`       | Half-Page Up / Down                                                      |
+| `ctrl-b` / `ctrl-f`       | Page Up / Down                                                           |
+| `/text` / `n` / `N`       | Search - Search text (i.e. can contain regexp) / n - next / N - Previous |
+| `*` / `#`                 | Search - Next / previous for the whole word under the cursor             |
+| `m{c}`                    | Mark - Save current location in register {c}                             |
+| `'{c}`                    | Mark - Go to the mark saved in register {c}                              |
+| `[COUNT]gt` / `gT`        | Go to tab page [COUNT]                                                   |
 
 <i> The left, right, up and down arrow keys can also be used to navigate. </i>
 
 ### 'Normal' mode - Editing
 
-<p>Yank / Cut / Delete commands operate on the specified range,<br> 
+<p>Yank / Cut / Delete commands operate on the specified range,<br>
     - If in <b>Visual</b> mode, that range is the highlighted text <br>
     - If in <b>Normal</b> mode, that range is specified by a series of modifiers to the commands</p>
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `i` / `I`                  | 'Insert' Get into Insert mode / At the first white space of the line            |
-| `a` / `A`                  | 'Append' Get into Insert mode after the cursor / At the end of the line         |
-| `r` / `R`                  | 'Replace' Get into Replace mode for 1 character / for the entire line           |
-| ~`s` / `S`~                | ~'Substitue' Character / Line  ('s' and 'S' used by Flash plugin)               |
-| `x` / `X`                  | 'Delete' forward / backward from current character                              |
-| `u` /  `Ctrl-R`            | Undo / Redo                                                                     |
-| `o` / `O`                  | Get into Insert mode create a line below / create a line above                  |
-| `C`                        | Change current line - Delete rest of the line and get into Insert mode          |
-| `D`                        | Change current line - Delete rest of the line and stay in Normal mode           |
-| `Y`                        | Yank current line - Copy rest of the line and stay in Normal mode               |
-| `cc`                       | Change / Cut - Delete current line and get into Insert mode                     |
-| `dd`                       | Delete - Delete entire line                                                     |
-| `yy`                       | Yank - Copy the entire line get and stay in Normal mode                         |
-| `P` / `p`                  | Paste before the cursor / after the cursor                                      |
-| `X` / `x`                  | Delete character before the cursor / after the cursor                           |
-| `cw`                       | Change / Cut Word - Delete end of the word and get into Insert mode             |
-| `c4w`                      | Change / Cut 4 Words - Delete end of the words, next 4 and get into Insert mode |
-| `c4l`                      | Change / Cut 4 Letters - Delete next 4 letters and get into Insert mode         |
-| `ciw`                      | Change / Cut In Word - Delete current word and get into Insert mode             |
-| `ci(`                      | Change / Cut Inside Parenthesis                                                 |
-| `dw`                       | Delete Word - Delete end of the word and stay in Normal mode                    |
-| `diw`                      | Delete In Word - Delete current word and stay in Normal mode                    |
-| `dip`                      | Delete Inside Paragraph - Delete current Paragraph                              |
-| `yy`                       | Yank - Copy the entire line get and stay in Normal mode                         |
-| `yw`                       | Yank Word - Copy end of the word and stay in Normal mode                        |
-| `yiw`                      | Yank In Word - Copy current word and stay in Normal mode                        |
-| `xp`                       | Transpose current character                                                     |
-| `.`                        | Repeat the last change that was made                                            |
-| `[COUNT]<Ctrl-a\|x>`       | Increment or Decrement the number under the cursor,optionnaly use COUNT         |
+| Shortcut             | Description                                                                     |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `i` / `I`            | 'Insert' Get into Insert mode / At the first white space of the line            |
+| `a` / `A`            | 'Append' Get into Insert mode after the cursor / At the end of the line         |
+| `r` / `R`            | 'Replace' Get into Replace mode for 1 character / for the entire line           |
+| ~`s` / `S`~          | ~'Substitue' Character / Line~ -> 's' and 'S' used by Flash plugin              |
+| `x` / `X`            | 'Delete' forward / backward from current character                              |
+| `u` / `Ctrl-R`       | Undo / Redo                                                                     |
+| `o` / `O`            | create a line below / create a line above, and switch to Insert mode            |
+| `C`                  | Change current line - Delete rest of the line and get into Insert mode          |
+| `D`                  | Change current line - Delete rest of the line and stay in Normal mode           |
+| `Y`                  | Yank current line - Copy rest of the line and stay in Normal mode               |
+| `cc`                 | Change / Cut - Delete current line and get into Insert mode                     |
+| `dd`                 | Delete - Delete entire line                                                     |
+| `yy`                 | Yank - Copy the entire line get and stay in Normal mode                         |
+| `P` / `p`            | Paste before the cursor / after the cursor                                      |
+| `X` / `x`            | Delete character before the cursor / after the cursor                           |
+| `cw`                 | Change / Cut Word - Delete end of the word and get into Insert mode             |
+| `c4w`                | Change / Cut 4 Words - Delete end of the words, next 4 and get into Insert mode |
+| `c4l`                | Change / Cut 4 Letters - Delete next 4 letters and get into Insert mode         |
+| `ciw`                | Change / Cut In Word - Delete current word and get into Insert mode             |
+| `ci(`                | Change / Cut Inside Parenthesis                                                 |
+| `dw`                 | Delete Word - Delete end of the word and stay in Normal mode                    |
+| `diw`                | Delete In Word - Delete current word and stay in Normal mode                    |
+| `dip`                | Delete Inside Paragraph - Delete current Paragraph                              |
+| `yw`                 | Yank Word - Copy end of the word and stay in Normal mode                        |
+| `yiw`                | Yank In Word - Copy current word and stay in Normal mode                        |
+| `xp`                 | Transpose current character                                                     |
+| `.`                  | Repeat the last change that was made                                            |
+| `[COUNT]<Ctrl-a\|x>` | Increment or Decrement the number under the cursor,optionnaly use COUNT         |
 
-<p><i>
-'i': Inside
-- 'a': Around
-- 'w': Word
-- 's': Sentence
-- 'l': Letter
-- 'p': Paragraph
-</i></p>
+<p><i> (i)nner, (a)round, (w)ord, (s)entence,(l)etter, (p)aragraph </i></p>
 
-### 'Normal' mode - Split 
+### 'Normal' mode - Split
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `<ctrl-w>h\|j\|k\|l`       | Split - Navigate  to the split screen (hjkl)                                    |
-| `<ctrl-w>H\|J\|K\|L`       | Split - Move to the split screen (HJKL)                                         |
-| `<ctrl-w>v`                | Split - New Vertical split screen                                               |
-| `<ctrl-w>s`                | Split - New Horizontal split screen                                             |
-| `<ctrl-w>=`                | Split - Set same size for all the split screens                                 |
-| `<ctrl-w>+\|-`             | Split - Horizontal resize                                                       |
-| `<ctrl-w>>\|<`             | Split - Vertical resize                                                         |
-| `<ctrl-w>f`                | Split - Open the file under the cursor in a new split                           |
+| Shortcut             | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `<ctrl-w>h\|j\|k\|l` | Split - Navigate to the split screen (hjkl)           |
+| `<ctrl-w>H\|J\|K\|L` | Split - Move to the split screen (HJKL)               |
+| `<ctrl-w>v`          | Split - New Vertical split screen                     |
+| `<ctrl-w>s`          | Split - New Horizontal split screen                   |
+| `<ctrl-w>=`          | Split - Set same size for all the split screens       |
+| `<ctrl-w>+\|-`       | Split - Horizontal resize                             |
+| `<ctrl-w>>\|<`       | Split - Vertical resize                               |
+| `<ctrl-w>f`          | Split - Open the file under the cursor in a new split |
 
 ### 'Normal' mode 'g' shortcuts
 
-| Shortcut                   | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| `gj` / `gk`                | Move up/down in case of text spanning over multiple lines                       |
-| `g$` / `g0`/ `g^`          | Same as existing navigation shortcuts but operating for spanning text           |
-| `gqq`                      | Transform spanning text to seperate lines                                       |
-| `gJ` / `J`                 | Join the current line and the line beneath it with no space / keep a space      |
-| `gU` / `gu`                | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE)      |
-| `g~`                       | Switching capitalization                                                        |
-| `gUU` / `guu`              | Uppercase / Lowercase the entire line                                           |
-| `gf`                       | Open the file under the cursor in nvim in current window                        |
-| `gv`                       | Jump back to previouly seclected text and go back into 'Visual' mode            |
-| `g&`                       | Execute the previous substituion accross the entire file                        |
+| Shortcut          | Description                                                                |
+| ----------------- | -------------------------------------------------------------------------- |
+| `gj` / `gk`       | Move up/down in case of text spanning over multiple lines                  |
+| `g$` / `g0`/ `g^` | Same as existing navigation shortcuts but operating for spanning text      |
+| `gqq`             | Transform spanning text to seperate lines                                  |
+| `gJ` / `J`        | Join the current line and the line beneath it with no space / keep a space |
+| `gU` / `gu`       | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE) |
+| `g~`              | Switching capitalization                                                   |
+| `gUU` / `guu`     | Uppercase / Lowercase the entire line                                      |
+| `gf`              | Open the file under the cursor in nvim in current window                   |
+| `gv`              | Jump back to previouly seclected text and go back into 'Visual' mode       |
+| `g&`              | Execute the previous substituion accross the entire file                   |
 
 ## Insert Mode
 
-| Shortcut                   | Description                                                       |
-|----------------------------|-------------------------------------------------------------------|
-| `<Ctrl-o> {Command}`       | Execute a command in Insert mode                                  |
-
+| Shortcut             | Description                      |
+| -------------------- | -------------------------------- |
+| `<Ctrl-o> {Command}` | Execute a command in Insert mode |

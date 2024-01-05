@@ -11,15 +11,33 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 
 	config = function()
-		local k = vim.keymap
+		local keymap = vim.keymap
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
-		-- k.set('n', '<leader>ff', builtin.find_files, {desc="Telescope: [F]ind [F]iles"})
-		-- k.set('n', '<leader>fg', builtin.live_grep, {desc="Telescope: [F]ile [G]rep"})
-		-- k.set('n', '<leader>fb', builtin.buffers, {desc="Telescope: [F]ile [B]uffers"})
-		-- k.set('n', '<leader>fh', builtin.help_tags, {desc="Telescope: [F]ile [H]elp Tags"})
+		keymap.set("n", "<leader>ft", ":TodoTelescope <cr>", { desc = "Telescope: [f]ind [t]odo " })
+		keymap.set("n", "<leader>fM", ":Telescope man_pages <cr>", { desc = "Telescope: [f]ind [M]an pages" })
+		keymap.set("n", "<leader>fk", ":Telescope keymaps <cr>", { desc = "Telescope: [f]ind [k]eymaps" })
+		keymap.set("n", "<leader>ff", ":Telescope find_files <cr>", { desc = "Telescope: [f]ind [f]iles" })
+		keymap.set("n", "<leader>fg", ":Telescope live_grep <cr>", { desc = "Telescope: [f]ile [g]rep" })
+		keymap.set("n", "<leader>fb", ":Telescope buffers <cr>", { desc = "Telescope: [f]ile [b]uffers" })
+		keymap.set("n", "<leader>fh", ":Telescope help_tags <cr>", { desc = "Telescope: [f]ile [h]elp tags" })
+		keymap.set("n", "<leader>fo", ":Telescope oldfiles <cr>", { desc = "Telescope: [f]ile [o]ld files / History" })
+		keymap.set("n", "<leader>fm", ":Telescope marks <cr>", { desc = "Telescope: [f]ile [m]arks" })
+		keymap.set(
+			"n",
+			"<leader>fs",
+			":Telescope current_buffer_fuzzy_find <cr>",
+			{ desc = "Telescope: [f]ile [s]earch" }
+		)
+		keymap.set("n", "<leader>/", function()
+			-- You can pass additional configuration to telescope to change theme, layout, etc.
+			require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				-- winblend = 30,
+				previewer = false,
+			}))
+		end, { desc = "Telescope: [/] Fuzzily search in current buffer" })
 		-- builtin.diagnostics({ severity_bound = 0 })
 
 		telescope.setup({
@@ -36,6 +54,8 @@ return {
 						["<C-t>"] = actions.select_tab, -- Open in a new tab
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
+						["<C-u>"] = actions.preview_scrolling_up,
+						["<C-d>"] = actions.preview_scrolling_down,
 
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-n>"] = actions.cycle_history_next,
@@ -44,8 +64,6 @@ return {
 						["<Down>"] = actions.move_selection_next,
 						["<Up>"] = actions.move_selection_previous,
 						["<CR>"] = actions.select_default,
-						["<C-u>"] = actions.preview_scrolling_up,
-						["<C-d>"] = actions.preview_scrolling_down,
 						["<PageUp>"] = actions.results_scrolling_up,
 						["<PageDown>"] = actions.results_scrolling_down,
 						["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
@@ -58,6 +76,8 @@ return {
 						["<C-h>"] = actions.select_horizontal, -- Open in new horizontal tab
 						["<C-v>"] = actions.select_vertical, -- Open in new vertical tab
 						["<C-t>"] = actions.select_tab, -- Open in a new tab
+						["<C-u>"] = actions.preview_scrolling_up,
+						["<C-d>"] = actions.preview_scrolling_down,
 
 						["<esc>"] = actions.close,
 						["<CR>"] = actions.select_default,
@@ -74,8 +94,6 @@ return {
 						["<Up>"] = actions.move_selection_previous,
 						["gg"] = actions.move_to_top,
 						["G"] = actions.move_to_bottom,
-						["<C-u>"] = actions.preview_scrolling_up,
-						["<C-d>"] = actions.preview_scrolling_down,
 						["<PageUp>"] = actions.results_scrolling_up,
 						["<PageDown>"] = actions.results_scrolling_down,
 						["?"] = actions.which_key,

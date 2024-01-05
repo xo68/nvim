@@ -24,19 +24,14 @@ return {
 			-- list of servers for mason to install
 			mason_lspconfig.setup({
 				ensure_installed = {
-					"tsserver",
-					"html",
-					"cssls",
-					"tailwindcss",
-					"svelte",
 					"lua_ls", -- lua
-					"graphql",
-					"emmet_ls",
-					"prismals",
 					"pyright", -- python
+					"pyre", -- python
 					"pylsp", -- python
+					"jedi_language_server", -- python
 					"clangd", -- C, C++, etc.
 					"gopls", -- Go
+					"marksman", -- Markdown
 				},
 				-- auto-install configured servers (with lspconfig)
 				-- automatic_installation = true, -- not the same as ensure_installed
@@ -53,6 +48,8 @@ return {
 					"gofumpt", -- format go
 					"stylua", -- format lua
 					"isort", -- format python
+					"markdownlint", -- markdown
+					"prettier", -- markdown
 					"black", -- format python
 					"clang-format", -- format python
 				},

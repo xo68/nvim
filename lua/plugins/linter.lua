@@ -6,13 +6,20 @@ return {
 	},
 	config = function()
 		local lint = require("lint")
+		local linters = require("lint").linters
 		lint.linters_by_ft = {
 			c = { "cpplint" },
 			go = { "golangcilint" },
+			markdown = { "markdownlint" },
 			-- python is already handled by pyls in lsp config
 			-- python = { "mypy", "flake8" },
 			-- python = { "pylint" },
 			-- lua = { "luacheck" },
+		}
+
+		linters.markdownlint.args = {
+			"--disable=line-length", -- It's ok to exceeed 80 characters for a line
+			"--disable=no-inline-html", -- It's ok to include HTML in markdown
 		}
 
 		-- Call linter when saving the file, opening a new buffer or leaving Insert
