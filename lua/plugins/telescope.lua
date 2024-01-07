@@ -16,20 +16,37 @@ return {
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
-		keymap.set("n", "<leader>ft", ":TodoTelescope <cr>", { desc = "Telescope: [f]ind [t]odo " })
+		keymap.set("n", "<leader>ft", ":TodoTelescope <cr>", { desc = "Telescope: [f]ind [t]odo (workspace)" })
 		keymap.set("n", "<leader>fM", ":Telescope man_pages <cr>", { desc = "Telescope: [f]ind [M]an pages" })
 		keymap.set("n", "<leader>fk", ":Telescope keymaps <cr>", { desc = "Telescope: [f]ind [k]eymaps" })
-		keymap.set("n", "<leader>ff", ":Telescope find_files <cr>", { desc = "Telescope: [f]ind [f]iles" })
-		keymap.set("n", "<leader>fg", ":Telescope live_grep <cr>", { desc = "Telescope: [f]ile [g]rep" })
-		keymap.set("n", "<leader>fb", ":Telescope buffers <cr>", { desc = "Telescope: [f]ile [b]uffers" })
-		keymap.set("n", "<leader>fh", ":Telescope help_tags <cr>", { desc = "Telescope: [f]ile [h]elp tags" })
-		keymap.set("n", "<leader>fo", ":Telescope oldfiles <cr>", { desc = "Telescope: [f]ile [o]ld files / History" })
-		keymap.set("n", "<leader>fm", ":Telescope marks <cr>", { desc = "Telescope: [f]ile [m]arks" })
+		keymap.set("n", "<leader>ff", ":Telescope find_files <cr>", { desc = "Telescope: [f]ind [f]iles (workspace)" })
+		keymap.set(
+			"n",
+			"<leader>fg",
+			":Telescope live_grep <cr>",
+			{ desc = "Telescope: [f]ile [g]rep live (workspace)" }
+		)
+		keymap.set(
+			"n",
+			"<leader>fG",
+			":Telescope grep_string <cr>",
+			{ desc = "Telescope: [f]ind [G]rep word under cursor (workspace)" }
+		)
+		keymap.set("n", "<leader>fb", ":Telescope buffers <cr>", { desc = "Telescope: [f]ind [b]uffers" })
+		keymap.set("n", "<leader>fh", ":Telescope help_tags <cr>", { desc = "Telescope: [f]ind [h]elp" })
+		keymap.set("n", "<leader>fo", ":Telescope oldfiles <cr>", { desc = "Telescope: [f]ind [o]ld files / History" })
+		keymap.set("n", "<leader>fm", ":Telescope marks <cr>", { desc = "Telescope: [f]ind [m]arks all" })
+		keymap.set(
+			"n",
+			"<leader>fS",
+			":Telescope lsp_document_symbols <cr>",
+			{ desc = "Telescope: [f]ile [S]ymbols (buffer)" }
+		)
 		keymap.set(
 			"n",
 			"<leader>fs",
 			":Telescope current_buffer_fuzzy_find <cr>",
-			{ desc = "Telescope: [f]ile [s]earch" }
+			{ desc = "Telescope: [f]ile [s]earch fuzzy (buffer)" }
 		)
 		keymap.set("n", "<leader>/", function()
 			-- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -37,7 +54,7 @@ return {
 				-- winblend = 30,
 				previewer = false,
 			}))
-		end, { desc = "Telescope: [/] Fuzzily search in current buffer" })
+		end, { desc = "Telescope: [/] Fuzzily search (buffer)" })
 		-- builtin.diagnostics({ severity_bound = 0 })
 
 		telescope.setup({

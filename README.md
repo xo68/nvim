@@ -17,22 +17,29 @@
 
 ## Backlog / Todo
 
+- git worktree & Telescope integration + futigive
 - Nvim DAP & DAP UI for Debugging
-- Ctrl-t (for tag list (e.g. after go definition) vs Ctrl-o (Jump List)
-- TagList VS QuickFixList VS JumpList
+- Marks plugin
+- QuickFix list and shortcuts (e.g. compilation errors, unit test, linting)
+  - global rename & change
+  - Telescope finds sent to quickfix
+- Explore advanced nvim cmd line utilities & tools
 
 ## Sample of key plugins
 
 - Lazy (Plugins manager for NeoVim)
 - Mason (Plugins manager for Linter, LSP, DAP, etc.)
-- Telescope, TreeSitter, Harpoon
-- Comment, LuaSnip-cmp, Dressing
+- Telescope, TreeSitter, Harpoon2
+- Comment, LuaSnip-cmp
+- Flash, Trouble
 - Lualine, Luatab
 - nvim-dap, nvim-dap-ui
 - nvim-lspconfig, nvim-cmp
 - and much more...
 
 ## Table of contents
+
+**[Shortcuts, tips & tricks](#shortcuts-tips--tricks) are at the end of this file**
 
 - [My custom configuration](#my-custom-configuration)
   - [NvimTree specific (Tree)](#nvimtree-specific)
@@ -41,7 +48,6 @@
 - [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
   - [Mode switching](#mode-switching)
   - ['Command' mode](#command-mode)
-    - [Specific use cases](#specific-use-cases)
   - ['Normal' mode - Navigation](#normal-mode---navigation)
   - ['Normal' mode - Editing](#normal-mode---editing)
   - ['Normal' mode - Split](#normal-mode---split)
@@ -50,77 +56,84 @@
 
 ## My custom configuration
 
-- \<Leader\> is mapped to space bar
-- \<Option\> is the macbook option key
+- \<Leader> is mapped to space bar
+- \<Option> is the macbook option key
 
-> Configuration file: [lua/remap.lua](lua/remap.lua)
-
-| Required Plugin | Shortcut       | Mode    | Description                                                   |
-| --------------- | -------------- | ------- | ------------------------------------------------------------- |
-| n/a             | `è`            | Normal  | Jump to a subject in documentation (= CTRL-] )                |
-| n/a             | `jk`or `kj`    | Insert  | Smart and fast excape \<ESC\>                                 |
-| n/a             | `<Ctrl>d\|u`   | Normal  | Scoll Up or Down and center the cursor                        |
-| n/a             | `<Ctrl>hjkl`   | Normal  | Split - Select split scrren (hjkl)                            |
-| n/a             | `<Option>hjkl` | Normal  | Split - resize vertical & horizontal                          |
-| n/a             | `<leader>sv`   | Normal  | Split - [s]plit [v]ertical                                    |
-| n/a             | `<leader>sh`   | Normal  | Split - [s]plit [h]orizontal                                  |
-| n/a             | `<leader>se`   | Normal  | Split - [s]plit [e]qual size                                  |
-| n/a             | `<leader>sc`   | Normal  | Split - [s]plit [c]lose current                               |
-| n/a             | `<leader>to`   | Normal  | Tab - [t]ab [o]pen                                            |
-| n/a             | `<leader>tc`   | Normal  | Tab - [t]ab [c]lose                                           |
-| n/a             | `<leader>tn`   | Normal  | Tab - [t]ab [n]ext                                            |
-| n/a             | `<leader>tp`   | Normal  | Tab - [t]ab [p]revious                                        |
-| n/a             | `<leader>tb`   | Normal  | Tab - [t]ab open current [b]uffer                             |
-| n/a             | `>` or `<`     | N,V     | Indent Right / Left                                           |
-| n/a             | `<Ctrl>jk`     | N,V,X   | Move selected line or block Up / down                         |
-| n/a             | `<leader>bl`   | Normal  | Buffer - [b]uffer [n]ext                                      |
-| n/a             | `<leader>bn`   | Normal  | Buffer - [b]uffer [p]revious                                  |
-| n/a             | `<leader>bp`   | Normal  | Buffer - [b]uffer [l]ist (Telescope)                          |
-| Nvim-Tree       | `<leader>ee`   | Normal  | NvimTree - [e]xplorer Toggle                                  |
-| Nvim-Tree       | `<leader>ef`   | Normal  | NvimTree - [e]xplorer Toggle for current [f]ile folder        |
-| Nvim-Tree       | `<leader>er`   | Normal  | NvimTree - [e]xplorer [r]efresh                               |
-| Telescope       | `<leader>ff`   | Normal  | Telescope: [f]ind [f]iles                                     |
-| Telescope       | `<leader>fs`   | Normal  | Telescope: [f]ile [s]earch                                    |
-| Telescope       | `<leader>/`    | Normal  | Telescope: [/] Fuzzily search in current buffer               |
-| Telescope       | `<leader>ft`   | Normal  | Telescope: [f]ind [t]odo                                      |
-| Telescope       | `<leader>fm`   | Normal  | Telescope: [f]ile [m]arks                                     |
-| Telescope       | `<leader>fM`   | Normal  | Telescope: [f]ind [M]an pages                                 |
-| Telescope       | `<leader>fg`   | Normal  | Telescope: [f]ile [g]rep                                      |
-| Telescope       | `<leader>fb`   | Normal  | Telescope: [f]ile [b]uffers                                   |
-| Telescope       | `<leader>fh`   | Normal  | Telescope: [f]ile [h]elp tags                                 |
-| Telescope       | `<leader>fo`   | Normal  | Telescope: [f]ile [o]ld files / History                       |
-| Maximizer       | `<leader>m`    | Normal  | Maximizer - [m]ax/[m]in splitview                             |
-| Nvim-LSP        | `gr`           | Normal  | LSP - [g]o [r]eferences (Show references)                     |
-| Nvim-LSP        | `gd`           | Normal  | LSP - [g]o [d]efinitions (Show definitions)                   |
-| Nvim-LSP        | `gD`           | Normal  | LSP - [g]o to [D]eclaration                                   |
-| Nvim-LSP        | `gi`           | Normal  | LSP - [g]o [i]mplementations (Show implementations)           |
-| Nvim-LSP        | `gy`           | Normal  | LSP - [g]o T[y]pe definitions                                 |
-| Nvim-LSP        | `<leader>ca`   | Normal  | LSP - [c]ode [a]ctions                                        |
-| Nvim-LSP        | `<leader>sr`   | Normal  | LSP - [s]mart [r]ename                                        |
-| Nvim-LSP        | `<leader>d`    | Normal  | LSP - [d]iagnostic (Show line diagnostics)                    |
-| Nvim-LSP        | `<leader>D`    | Normal  | LSP - [D]iagnostics (Show buffer diagnostics)                 |
-| Nvim-LSP        | `[d` or `]d`   | Normal  | LSP - Go to previous or next diagnostic                       |
-| Nvim-LSP        | `K`            | Normal  | LSP - [K] Show documentation for what is under cursor         |
-| Nvim-LSP        | `<leader>lr`   | Normal  | LSP - [l]sp [r]estart                                         |
-| Nvim-LSP        | `[[`or `]]`    | Normal  | LSP - <i>special</i> e.g jump next / previous class           |
-| Nvim-LSP        | `[m`or `]m`    | Normal  | LSP - <i>special</i> e.g jump next / previous method in class |
-| Flash           | `s`            | N, X, O | Flash - [s]earch (flash)                                      |
-| Flash           | `S`            | N, X, O | Flash - [s]earch treesitter                                   |
-| Flash           | `R`            | X, O    | Flash - [R] Treesitter (e.g. with copy or yank)               |
-| Comments        | `gco` or `gcO` | N, V    | Comment, Create a new comment below or above current line     |
-| Comments        | `gcA`          | N, V    | Comment, Create a new comment at the end of the line          |
-| Comments        | `gcc`          | N, V    | Comment / Un-comment the current line                         |
-| Comments        | `gcip`         | N, V    | Comment / Un-comment Inside Paragraph                         |
-| Comments        | `gbc`          | N, V    | Comment / Un-comment a Block (e.g. like /\* \*/ in C)         |
-| Harpoon         | `<leader>hl`   | Normal  | Harpoon - [h]arpoon [l]ist                                    |
-| Harpoon         | `<leader>ha`   | Normal  | Harpoon - [h]arpoon [a]ppend                                  |
-| Harpoon         | `<leader>hc`   | Normal  | Harpoon - [h]arpoon [c]lear list                              |
-| Harpoon         | `<leader>hr`   | Normal  | Harpoon - [h]arpoon [r]remove current item                    |
-| Harpoon         | `<leader>p`    | Normal  | Harpoon - [p]revious item                                     |
-| Harpoon         | `<leader>n`    | Normal  | Harpoon - [n]ext item                                         |
-| Conform         | `<leader>lf`   | N, V    | Language - [l]anguage [f]ormatter (Conform)                   |
-| Linting         | `<leader>ll`   | Normal  | Language - [l]anguage [l]inter (nvim-lint)                    |
-| n/a             | `<leader>li`   | Normal  | Language - [l]sp [i]nspect                                    |
+| Required Plugin | Shortcut         | Mode    | Description                                                   |
+| --------------- | ---------------- | ------- | ------------------------------------------------------------- |
+| n/a             | `è`              | Normal  | CTRL-] to navigate in documentation (Swiss key)               |
+| n/a             | `jk`or `kj`      | Insert  | Smart and fast escape \<ESC\>                                 |
+| n/a             | `<Ctrl>d` or `u` | Normal  | Scoll Up or Down and center the cursor                        |
+| n/a             | `>` or `<`       | N,V     | Indent Right / Left                                           |
+| n/a             | `<Ctrl>j` or `k` | N,V,X   | Move selected line or block Up / down                         |
+| n/a             | `<Ctrl>hjkl`     | Normal  | Split - Select split screen (hjkl)                            |
+| n/a             | `<Option>hjkl`   | Normal  | Split - resize vertical & horizontal                          |
+| n/a             | `<leader>sv`     | Normal  | Split - [s]plit [v]ertical                                    |
+| n/a             | `<leader>sh`     | Normal  | Split - [s]plit [h]orizontal                                  |
+| n/a             | `<leader>se`     | Normal  | Split - [s]plit [e]qual size                                  |
+| n/a             | `<leader>sc`     | Normal  | Split - [s]plit [c]lose current                               |
+| n/a             | `<leader>to`     | Normal  | Tab - [t]ab [o]pen                                            |
+| n/a             | `<leader>tc`     | Normal  | Tab - [t]ab [c]lose                                           |
+| n/a             | `<leader>tn`     | Normal  | Tab - [t]ab [n]ext                                            |
+| n/a             | `<leader>tp`     | Normal  | Tab - [t]ab [p]revious                                        |
+| n/a             | `<leader>tb`     | Normal  | Tab - [t]ab open current [b]uffer                             |
+| n/a             | `<leader>bl`     | Normal  | Buffer - [b]uffer [n]ext                                      |
+| n/a             | `<leader>bn`     | Normal  | Buffer - [b]uffer [p]revious                                  |
+| n/a             | `<leader>bp`     | Normal  | Buffer - [b]uffer [l]ist (Telescope)                          |
+| Nvim-Tree       | `<leader>ee`     | Normal  | NvimTree - [e]xplorer Toggle                                  |
+| Nvim-Tree       | `<leader>ef`     | Normal  | NvimTree - [e]xplorer Toggle current [f]ile location          |
+| Nvim-Tree       | `<leader>er`     | Normal  | NvimTree - [e]xplorer [r]efresh                               |
+| Telescope       | `<leader>ff`     | Normal  | Telescope: [f]ind [f]iles (workspace)                         |
+| Telescope       | `<leader>fs`     | Normal  | Telescope: [f]ile [s]earch fuzzy (buffer)                     |
+| Telescope       | `<leader>fS`     | Normal  | Telescope: [f]ile [S]ymbols (buffer)                          |
+| Telescope       | `<leader>/`      | Normal  | Telescope: [/] Fuzzily search (buffer)                        |
+| Telescope       | `<leader>ft`     | Normal  | Telescope: [f]ind [t]odo (workspace)                          |
+| Telescope       | `<leader>fm`     | Normal  | Telescope: [f]ind [m]arks                                     |
+| Telescope       | `<leader>fM`     | Normal  | Telescope: [f]ind [M]an pages (cmd line man)                  |
+| Telescope       | `<leader>fg`     | Normal  | Telescope: [f]ile [g]rep live (workspace)                     |
+| Telescope       | `<leader>fG`     | Normal  | Telescope: [f]ind [G]rep word under the cursor (workspace)    |
+| Telescope       | `<leader>fb`     | Normal  | Telescope: [f]ind [b]uffers                                   |
+| Telescope       | `<leader>fh`     | Normal  | Telescope: [f]ind [h]elp                                      |
+| Telescope       | `<leader>fo`     | Normal  | Telescope: [f]ind [o]ld files / History                       |
+| Maximizer       | `<leader>m`      | Normal  | Maximizer - [m]ax/[m]in splitview                             |
+| Nvim-LSP        | `gr`             | Normal  | LSP - [g]o [r]eferences (Telescope)                           |
+| Trouble         | `gR`             | Normal  | LSP - [g]o [R]eferences (Trouble)                             |
+| Nvim-LSP        | `gd`             | Normal  | LSP - [g]o [d]efinitions (Show definitions)                   |
+| Nvim-LSP        | `gD`             | Normal  | LSP - [g]o to [D]eclaration                                   |
+| Nvim-LSP        | `gi`             | Normal  | LSP - [g]o [i]mplementations (Show implementations)           |
+| Nvim-LSP        | `gy`             | Normal  | LSP - [g]o T[y]pe definitions                                 |
+| Nvim-LSP        | `<leader>ca`     | Normal  | LSP - [c]ode [a]ctions                                        |
+| Nvim-LSP        | `<leader>sr`     | Normal  | LSP - [s]mart [r]ename                                        |
+| Nvim-LSP        | `<leader>d`      | Normal  | LSP - [d]iagnostic (Show line diagnostics)                    |
+| Nvim-LSP        | `<leader>D`      | Normal  | LSP - [D]iagnostics (Show buffer diagnostics)                 |
+| Nvim-LSP        | `[d` or `]d`     | Normal  | LSP - Go to previous or next [d]iagnostic                     |
+| Nvim-LSP        | `K`              | Normal  | LSP - [K] Show documentation for what is under cursor         |
+| Nvim-LSP        | `<leader>lr`     | Normal  | LSP - [l]sp [r]estart                                         |
+| Nvim-LSP        | `[[`or `]]`      | Normal  | LSP - <i>special</i> e.g jump next / previous class           |
+| Nvim-LSP        | `[m`or `]m`      | Normal  | LSP - <i>special</i> e.g jump next / previous method in class |
+| Flash           | `s`              | N, X, O | Flash - [s]earch (flash)                                      |
+| Flash           | `S`              | N, X, O | Flash - [s]earch (treesitter)                                 |
+| Flash           | `R`              | X, O    | Flash - [R] Treesitter (e.g. with copy or yank)               |
+| Comments        | `gcR`            | N, V    | Comment - [g]o [c]omment new (Flash / Treesitter)             |
+| Comments        | `gco` or `gcO`   | N, V    | Comment - [g]o [c]omment new below or above line              |
+| Comments        | `gcA`            | N, V    | Comment - [g]o [c]omment new (end of the line)                |
+| Comments        | `gcc`            | N, V    | Comment - [g]o [c]comment / Un-comment line                   |
+| Comments        | `gcip`           | N, V    | Comment - [g]o [c]comment / Un-comment paragraph              |
+| Comments        | `gbc`            | N, V    | Comment - [g]o [b]lock comment / Un-comment                   |
+| Harpoon2        | `<leader>hl`     | Normal  | Harpoon - [h]arpoon [l]ist                                    |
+| Harpoon2        | `<leader>ha`     | Normal  | Harpoon - [h]arpoon [a]ppend                                  |
+| Harpoon2        | `<leader>hc`     | Normal  | Harpoon - [h]arpoon [c]lear list                              |
+| Harpoon2        | `<leader>hr`     | Normal  | Harpoon - [h]arpoon [r]remove current item                    |
+| Harpoon2        | `<leader>p`      | Normal  | Harpoon - [p]revious item                                     |
+| Harpoon2        | `<leader>n`      | Normal  | Harpoon - [n]ext item                                         |
+| Conform         | `<leader>lf`     | N, V    | Language - [l]anguage [f]ormatter (Conform)                   |
+| Linting         | `<leader>ll`     | Normal  | Language - [l]anguage [l]inter (nvim-lint)                    |
+| n/a             | `<leader>li`     | Normal  | Language - [l]sp [i]nspect                                    |
+| Trouble         | `<leader>xx`     | Normal  | Trouble - [x] Toggle                                          |
+| Trouble         | `<leader>xw`     | Normal  | Trouble - [x] Toggle [w]orkspace diagnostics                  |
+| Trouble         | `<leader>xd`     | Normal  | Trouble - [x] Toggle [d]ocument diagnostics                   |
+| Trouble         | `<leader>xq`     | Normal  | Trouble - [x] Toggle [q]uickfix list                          |
+| Trouble         | `<leader>xl`     | Normal  | Trouble - [x] Toggle [l]oc list                               |
 
 ### NvimTree specific
 
@@ -214,16 +227,6 @@ Enter in <b>Command</b> mode by typing ':'
 | `g`              | Global, for the entire file |
 | `i`              | Ignore case                 |
 | `c`              | Confirm each subtitution    |
-
-#### Specific use cases
-
-> <u><b>How to copy from a buffer to cmd line ?</b></u></br>
-> Option 1 - Yank line in current buffer and then \<ctrl>R-0 in cmd line</br>
-> Option 2 - Yank line to a specific register (e.g. <"ayy> will yank in register "a"), then \<ctrl>R-"a"</br>
-
-> <u><b>How to copy from a buffer to the clipboard ?</b></u></br>
-> Option 1 - Yank to the register "+" or "\*" (e.g. <"+yy>) </br>
-> Option 2 - Using wezterm terminal, enter in copy mode with \<Ctrl> + \<Shift> + x </br>
 
 ### 'Normal' mode - Navigation
 
@@ -322,8 +325,46 @@ Enter in <b>Command</b> mode by typing ':'
 | `gv`              | Jump back to previouly seclected text and go back into 'Visual' mode       |
 | `g&`              | Execute the previous substituion accross the entire file                   |
 
-## Insert Mode
+### "Insert" Mode
 
 | Shortcut             | Description                      |
 | -------------------- | -------------------------------- |
 | `<Ctrl-o> {Command}` | Execute a command in Insert mode |
+
+## Shortcuts, tips & tricks
+
+### Core
+
+- `:Lazy`: Plugin managemet
+- `:Mason`: LSP, Linter, Formater, DAP installer
+- `:checkhealth`: Check the health of all plugins
+- `:InspectTree`: Treesitter inspection tree
+- `:TOhtml`: Convert buffer into html incl. color coding
+
+### Advanced
+
+> **How to copy from a buffer to cmd line ?**
+>
+> - Yank line in current buffer and then \<ctrl>R-0 in cmd line
+> - Yank line to a specific register (e.g. <"ayy> will yank in register "a"), then \<ctrl>R-"a"</br>
+
+> **How to copy from a buffer to the clipboard ?**
+>
+> - Yank to the register "+" or "\*" (e.g. <"+yy>)
+> - Using wezterm terminal, enter in copy mode with \<Ctrl> + \<Shift> + x
+
+> **While searching i.e.'/', how to jump between results live ?**
+>
+> - Use \<ctrl-t> & \<ctrl-g> to move between next & previous match
+
+> **How to move in the <u>jumplist</u> ?**  
+> So called jump commands that are stored in the jump list:  
+> "'", "`", "G", "/", "?", "n", "N", "%", "(", ")", "[[", "]]", "{", "}", ":s", ":tag", "L", "M", "H"  
+> _It can be very useful when browsing the help pages_
+>
+> - Use \<ctrl-o> & \<ctrl-i> to go to older & newer positions in jump list
+
+> **How to move in the <u>changelist</u> ?**  
+> When making a change the cursor position is remembered.
+>
+> - Use \<g;> & \<g,> to go to older & newer positions in the change list

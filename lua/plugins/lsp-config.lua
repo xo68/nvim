@@ -21,8 +21,8 @@ return {
 			local opts = { noremap = true, silent = true }
 			local keymap = vim.keymap
 			local handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+				-- ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+				-- ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
 			}
 
 			neodev.setup({})
@@ -31,7 +31,7 @@ return {
 				opts.buffer = bufnr
 
 				-- set keybinds
-				opts.desc = "LSP - [g]o [r]eferences (Show references)"
+				opts.desc = "LSP - [g]o [r]eferences (Telescope)"
 				keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
 				opts.desc = "LSP - [g]o to [D]eclaration"
@@ -58,14 +58,17 @@ return {
 				opts.desc = "LSP - [D]iagnostics (Show buffer diagnostics)"
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
-				opts.desc = "LSP - Go to previous diagnostic"
+				opts.desc = "LSP - Go to previous [d]iagnostic"
 				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
-				opts.desc = "LSP - Go to next diagnostic"
+				opts.desc = "LSP - Go to next [d]iagnostic"
 				keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
 				opts.desc = "LSP - [K] Show documentation for what is under cursor"
 				keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+				-- opts.desc = "LSP - [k] Show signature"
+				-- keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 				opts.desc = "LSP - [l]sp [r]estart"
 				keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary

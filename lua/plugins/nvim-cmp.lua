@@ -43,21 +43,21 @@ return {
 				{ name = "buffer" },
 			}),
 		})
-
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered({ border = "single" }),
+				-- documentation = cmp.config.window.bordered({ border = "single" }),
 			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-
 			mapping = cmp.mapping.preset.insert({
 				["<Tab>"] = function(fallback)
 					if cmp.visible() then
@@ -90,7 +90,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp", priority = 8 }, -- lsp
 				{ name = "nvim_lua", priority = 5 }, -- Nvim Lua
-				{ name = "treesitter", priority = 6 },
+				-- { name = "treesitter", priority = 6 },
 				{ name = "luasnip", priority = 5 }, -- snippets
 				{ name = "buffer", priority = 9 }, -- text within current buffer
 				{ name = "path", priority = 5 }, -- file system paths

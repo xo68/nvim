@@ -4,7 +4,7 @@ return {
 		-- To be enabled if colorschemee is not showing great
 		label = {
 			rainbow = {
-				enabled = true,
+				enabled = false,
 				shade = 7, -- number between 1 and 9
 			},
 		},
@@ -24,7 +24,7 @@ return {
 			function()
 				require("flash").treesitter()
 			end,
-			desc = "Flash - [s]earch treesitter",
+			desc = "Flash - [s]earch (treesitter)",
 		},
 		{
 			"R",

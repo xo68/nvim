@@ -23,6 +23,7 @@ return {
 				autotag = { enable = true },
 				-- ensure these language parsers are installed
 				ensure_installed = {
+					"bash",
 					"go",
 					"cpp",
 					"c",
@@ -39,13 +40,23 @@ return {
 					"markdown_inline",
 					"svelte",
 					"graphql",
-					"bash",
 					"lua",
 					"dockerfile",
 					"gitignore",
+					"git_config",
+					"git_rebase",
+					"gitattributes",
+					"gitcommit",
+					"gitignore",
+					"gpg",
 					"vim",
 					"vimdoc",
 					"diff",
+					"sql",
+					"ssh_config",
+					"terraform",
+					"xml",
+					"yaml",
 				},
 				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
 				context_commentstring = {

@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 -- Core settings
+-- opt.colorcolumn = "80"
 opt.laststatus = 3
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -54,6 +55,6 @@ vim.diagnostic.config({
 	},
 	float = {
 		source = "always",
-		border = "double",
+		-- border = "single",
 	},
 })

@@ -3,7 +3,7 @@ local api = vim.api
 vim.g.mapleader = " "
 
 -- MacBook Swiss Keyboard remapping, test mac key with $sed -n l
-keymap.set("n", "è", "<C-]>", { desc = "Jump to a subject in documentation (= CTRL-])" })
+keymap.set("n", "è", "<C-]>", { desc = "CTRL-] to navigate in documentation (Swiss key) " })
 
 -- Smart escape
 keymap.set("i", "kj", "<ESC>", { desc = "Fast escape" })
@@ -64,9 +64,11 @@ keymap.set(
 -- Nvim-tree -> ./plugins/nvim-tree.lua
 -- Nvim-telescope -> ./plugins/telescope.lua
 -- Nvim-maximizer -> ./plugins/vim-maximizer.lua
--- Harpoon -> ./plugins/harpoon.lua
+-- Harpoon2 -> ./plugins/harpoon.lua
 -- Formatter (conform) -> ./plugins/formatter.lua
 -- Linter (nvim-lint) -> ./plugins/linter.lua
+-- Trouble -> ./plugins/trouble.lua
+-- Flash -> ./plugins/flash.lua
 
 -- debugger / todo
 -- keymap.set('n', '<f5>', function() require('dap').continue() end)
