@@ -69,6 +69,7 @@ keymap.set(
 -- Linter (nvim-lint) -> ./plugins/linter.lua
 -- Trouble -> ./plugins/trouble.lua
 -- Flash -> ./plugins/flash.lua
+-- Markdow -> ./plugins/markdown.lua
 
 -- debugger / todo
 -- keymap.set('n', '<f5>', function() require('dap').continue() end)

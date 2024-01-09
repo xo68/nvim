@@ -53,6 +53,7 @@ return {
 				-- completion = cmp.config.window.bordered({ border = "single" }),
 				-- documentation = cmp.config.window.bordered({ border = "single" }),
 			},
+
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)

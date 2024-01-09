@@ -20,6 +20,7 @@
 - git worktree & Telescope integration + futigive
 - Nvim DAP & DAP UI for Debugging
 - Marks plugin
+- Macros
 - QuickFix list and shortcuts (e.g. compilation errors, unit test, linting)
   - global rename & change
   - Telescope finds sent to quickfix
@@ -95,7 +96,10 @@
 | Telescope       | `<leader>fb`     | Normal  | Telescope: [f]ind [b]uffers                                   |
 | Telescope       | `<leader>fh`     | Normal  | Telescope: [f]ind [h]elp                                      |
 | Telescope       | `<leader>fo`     | Normal  | Telescope: [f]ind [o]ld files / History                       |
+| Telescope       | `<leader>fl`     | Normal  | Telescope: [f]ind [l]anguage snippets (buffer)                |
 | Maximizer       | `<leader>m`      | Normal  | Maximizer - [m]ax/[m]in splitview                             |
+| Markdown        | `<leader>Ms`     | Normal  | Markdown: [M]arkdowm preview [s]tart (buffer)                 |
+| Markdown        | `<leader>MS`     | Normal  | Markdown: [M]arkdowm preview [S]tart (buffer)                 |
 | Nvim-LSP        | `gr`             | Normal  | LSP - [g]o [r]eferences (Telescope)                           |
 | Trouble         | `gR`             | Normal  | LSP - [g]o [R]eferences (Trouble)                             |
 | Nvim-LSP        | `gd`             | Normal  | LSP - [g]o [d]efinitions (Show definitions)                   |
@@ -335,7 +339,7 @@ Enter in <b>Command</b> mode by typing ':'
 
 ### Core
 
-- `:Lazy`: Plugin managemet
+- `:Lazy`: Plugins management
 - `:Mason`: LSP, Linter, Formater, DAP installer
 - `:checkhealth`: Check the health of all plugins
 - `:InspectTree`: Treesitter inspection tree

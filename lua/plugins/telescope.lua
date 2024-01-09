@@ -8,7 +8,10 @@ return {
 	tag = "0.1.5",
 	-- or branch = '0.1.x',
 
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"benfowler/telescope-luasnip.nvim",
+		"nvim-lua/plenary.nvim",
+	},
 
 	config = function()
 		local keymap = vim.keymap
@@ -16,6 +19,12 @@ return {
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
+		keymap.set(
+			"n",
+			"<leader>fl",
+			":Telescope luasnip <cr>",
+			{ desc = "Telescope: [f]ind [l]anguage snippets (buffer)" }
+		)
 		keymap.set("n", "<leader>ft", ":TodoTelescope <cr>", { desc = "Telescope: [f]ind [t]odo (workspace)" })
 		keymap.set("n", "<leader>fM", ":Telescope man_pages <cr>", { desc = "Telescope: [f]ind [M]an pages" })
 		keymap.set("n", "<leader>fk", ":Telescope keymaps <cr>", { desc = "Telescope: [f]ind [k]eymaps" })
@@ -118,6 +127,7 @@ return {
 				},
 			},
 		})
+		telescope.load_extension("luasnip")
 	end,
 
 	pickers = {
