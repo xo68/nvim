@@ -18,9 +18,12 @@
 ## Backlog / Todo
 
 - git worktree & Telescope integration + futigive
+- git diffview plugin
 - Nvim DAP & DAP UI for Debugging
 - Marks plugin
 - Macros
+- Using nvim for merge & diff
+- Turn on spell checker
 - QuickFix list and shortcuts (e.g. compilation errors, unit test, linting)
   - global rename & change
   - Telescope finds sent to quickfix
@@ -42,18 +45,25 @@
 
 **[Shortcuts, tips & tricks](#shortcuts-tips--tricks) are at the end of this file**
 
-- [My custom configuration](#my-custom-configuration)
-  - [NvimTree specific (Tree)](#nvimtree-specific)
-  - [CMP specific (Completion)](#cmp-specific-completion)
-  - [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
-- [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
-  - [Mode switching](#mode-switching)
-  - ['Command' mode](#command-mode)
-  - ['Normal' mode - Navigation](#normal-mode---navigation)
-  - ['Normal' mode - Editing](#normal-mode---editing)
-  - ['Normal' mode - Split](#normal-mode---split)
-  - ['Normal' model 'g' shortcuts](#normal-mode-g-shortcuts)
-  - ['Insert' mode](#insert-mode)
+<!-- vim-markdown-toc GFM -->
+
+* [My custom configuration](#my-custom-configuration)
+  * [NvimTree specific](#nvimtree-specific)
+  * [CMP Specific (completion)](#cmp-specific-completion)
+  * [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
+* [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
+  * [Mode switching](#mode-switching)
+  * ['Command' mode](#command-mode)
+  * ['Normal' mode - Navigation](#normal-mode---navigation)
+  * ['Normal' mode - Editing](#normal-mode---editing)
+  * ['Normal' mode - Split](#normal-mode---split)
+  * ['Normal' mode 'g' shortcuts](#normal-mode-g-shortcuts)
+  * ["Insert" Mode](#insert-mode)
+* [Shortcuts, tips & tricks](#shortcuts-tips--tricks)
+  * [Core](#core)
+  * [Advanced](#advanced)
+
+<!-- vim-markdown-toc -->
 
 ## My custom configuration
 
@@ -343,7 +353,8 @@ Enter in <b>Command</b> mode by typing ':'
 - `:Mason`: LSP, Linter, Formater, DAP installer
 - `:checkhealth`: Check the health of all plugins
 - `:InspectTree`: Treesitter inspection tree
-- `:TOhtml`: Convert buffer into html incl. color coding
+- `:TOhtml`: Convert buffer into html incl. color scheme
+- `:GenTocGFM`: Markdown table of content generation
 
 ### Advanced
 
