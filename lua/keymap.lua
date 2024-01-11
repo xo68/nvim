@@ -5,6 +5,10 @@ vim.g.mapleader = " "
 -- MacBook Swiss Keyboard remapping, test mac key with $sed -n l
 keymap.set("n", "è", "<C-]>", { desc = "CTRL-] to navigate in documentation (Swiss key) " })
 
+-- Show colum 80
+keymap.set("n", "<leader>cc", ":set colorcolumn=80<cr>", { desc = "set option - [c]olor [c]olumn = 80" })
+keymap.set("n", "<leader>cC", ":set colorcolumn=0<cr>", { desc = "set option - [c]olor [c]olumn = 0" })
+
 -- Smart escape
 keymap.set("i", "kj", "<ESC>", { desc = "Fast escape" })
 keymap.set("i", "jk", "<ESC>", { desc = "Fast escape" })

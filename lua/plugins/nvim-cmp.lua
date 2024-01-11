@@ -48,10 +48,8 @@ return {
 				completeopt = "menu,menuone,preview,noselect",
 			},
 			window = {
-				-- completion = cmp.config.window.bordered(),
-				-- documentation = cmp.config.window.bordered(),
-				-- completion = cmp.config.window.bordered({ border = "single" }),
-				-- documentation = cmp.config.window.bordered({ border = "single" }),
+				completion = cmp.config.window.bordered({ border = "single" }),
+				documentation = cmp.config.window.bordered({ border = "single" }),
 			},
 
 			snippet = {

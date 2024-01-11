@@ -5,7 +5,7 @@ return {
 			require("onedark").setup({
 				-- Main options --
 				style = "darker", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-				transparent = false, -- Show/hide background
+				transparent = true, -- Show/hide background
 				term_colors = true, -- Change terminal color as per the selected theme style
 				ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -44,6 +44,7 @@ return {
 			-- require("onedark").load()
 		end,
 	},
+
 	{
 
 		"rebelot/kanagawa.nvim",
@@ -56,7 +57,7 @@ return {
 				keywordStyle = { bold = false, italic = false },
 				statementStyle = { bold = false, italic = false },
 				typeStyle = {},
-				transparent = false, -- do not set background color
+				transparent = true, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
@@ -74,23 +75,22 @@ return {
 				overrides = function(colors) -- add/modify highlights
 					local theme = colors.theme
 					return {
-						-- NormalFloat = { bg = "none" },
-						-- FloatBorder = { bg = "none" },
-						-- FloatTitle = { bg = "none" },
+						NormalFloat = { bg = "none" },
+						FloatBorder = { bg = "none" },
+						FloatTitle = { bg = "none" },
 
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
 						-- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
-						-- NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-
+						NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
-						-- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						-- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-						-- PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-						-- PmenuSbar = { bg = theme.ui.bg_m1 },
-						-- PmenuThumb = { bg = theme.ui.bg_p2 },
+						LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+						PmenuSbar = { bg = theme.ui.bg_m1 },
+						PmenuThumb = { bg = theme.ui.bg_p2 },
 					}
 					-- return {}
 				end,
@@ -117,8 +117,8 @@ return {
 				dark_variant = "moon",
 				bold_vert_split = false,
 				dim_nc_background = false,
-				disable_background = false,
-				disable_float_background = false,
+				disable_background = true,
+				disable_float_background = true,
 				disable_italics = true,
 			})
 			-- set colorscheme after options
@@ -139,7 +139,7 @@ return {
 		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup({
-				transparent_background = false,
+				transparent_background = true,
 				terminal_colors = true,
 				devicons = true, -- highlight the icons of `nvim-web-devicons`
 				styles = {
@@ -161,13 +161,13 @@ return {
 				},
 				inc_search = "background", -- underline | background
 				background_clear = {
-					-- "float_win",
-					"toggleterm",
+					"float_win",
+					-- "toggleterm",
 					"telescope",
 					-- "which-key",
-					"renamer",
-					"notify",
-					-- "nvim-tree",
+					-- "renamer",
+					-- "notify",
+					"nvim-tree",
 					-- "neo-tree",
 					-- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
 				}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
@@ -196,7 +196,7 @@ return {
 					-- Compiled file's destination location
 					compile_path = vim.fn.stdpath("cache") .. "/nightfox",
 					compile_file_suffix = "_compiled", -- Compiled file suffix
-					transparent = false, -- Disable setting background
+					transparent = true, -- Disable setting background
 					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
 					dim_inactive = false, -- Non focused panes set to alternative background
 					module_default = true, -- Default enable value for modules
@@ -255,7 +255,7 @@ return {
 				-- or leave it empty to use the default settings
 				style = "night", -- the theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 				light_style = "day", -- the theme is used when the background is set to light
-				transparent = false, -- enable this to disable setting the background color
+				transparent = true, -- enable this to disable setting the background color
 				terminal_colors = true, -- configure the colors used when opening a `:terminal` in [neovim](https://github.com/neovim/neovim)
 				styles = {
 					-- style to be applied to different syntax groups
@@ -271,7 +271,7 @@ return {
 				sidebars = { "qf", "help" }, -- set a darker background on sidebar-like windows. for example: `["qf", "vista_kind", "terminal", "packer"]`
 				day_brightness = 0.3, -- adjusts the brightness of the colors of the **day** style. number between 0 and 1, from dull to vibrant colors
 				hide_inactive_statusline = false, -- enabling this option, will hide inactive statuslines and replace them with a thin border instead. should work with the standard **statusline** and **lualine**.
-				dim_inactive = true, -- dims inactive windows
+				dim_inactive = false, -- dims inactive windows
 				lualine_bold = true, -- when `true`, section headers in the lualine theme will be bold
 
 				--- you can override specific color groups to use other groups or a hex color
@@ -303,7 +303,7 @@ return {
 					light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = false, -- disables setting the background color.
+				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 				term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				dim_inactive = {

@@ -17,6 +17,7 @@
 
 ## Backlog / Todo
 
+- Add 'gq' -> Reformat line
 - git worktree & Telescope integration + futigive
 - git diffview plugin
 - Nvim DAP & DAP UI for Debugging
@@ -91,6 +92,8 @@
 | n/a             | `<leader>bl`     | Normal  | Buffer - [b]uffer [n]ext                                      |
 | n/a             | `<leader>bn`     | Normal  | Buffer - [b]uffer [p]revious                                  |
 | n/a             | `<leader>bp`     | Normal  | Buffer - [b]uffer [l]ist (Telescope)                          |
+| n/a             | `<leader>cc`     | Normal  | set option - [c]olor [c]olumn = 80                            |
+| n/a             | `<leader>cC`     | Normal  | set option - [c]olor [c]olumn = 0                             |
 | Nvim-Tree       | `<leader>ee`     | Normal  | NvimTree - [e]xplorer Toggle                                  |
 | Nvim-Tree       | `<leader>ef`     | Normal  | NvimTree - [e]xplorer Toggle current [f]ile location          |
 | Nvim-Tree       | `<leader>er`     | Normal  | NvimTree - [e]xplorer [r]efresh                               |
@@ -330,7 +333,7 @@ Enter in <b>Command</b> mode by typing ':'
 | ----------------- | -------------------------------------------------------------------------- |
 | `gj` / `gk`       | Move up/down in case of text spanning over multiple lines                  |
 | `g$` / `g0`/ `g^` | Same as existing navigation shortcuts but operating for spanning text      |
-| `gqq`             | Transform spanning text to seperate lines                                  |
+| `gqq` / `gq`      | Transform spanning text to seperate lines (limit to 80 chars)              |
 | `gJ` / `J`        | Join the current line and the line beneath it with no space / keep a space |
 | `gU` / `gu`       | Uppercase / Lowercase (e.g. 'gUiw' -> full word under cursor in UPPERCASE) |
 | `g~`              | Switching capitalization                                                   |
