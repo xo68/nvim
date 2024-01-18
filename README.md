@@ -17,15 +17,12 @@
 
 ## Backlog / Todo
 
-- Add 'gq' -> Reformat line
-- git worktree & Telescope integration + futigive
-- git diffview plugin
+- copilot & chatgpt
+- git worktree & Telescope integration + fugitive
+- Using nvim for merge & diff + diffview plugin
 - Nvim DAP & DAP UI for Debugging
 - Marks plugin
-- Macros
-- Using nvim for merge & diff
-- Turn on spell checker
-- QuickFix list and shortcuts (e.g. compilation errors, unit test, linting)
+- QuickFix list and shortcuts (e.g. Compilation errors, unit test, linting)
   - global rename & change
   - Telescope finds sent to quickfix
 - Explore advanced nvim cmd line utilities & tools
@@ -61,7 +58,9 @@
   * ['Normal' mode 'g' shortcuts](#normal-mode-g-shortcuts)
   * ["Insert" Mode](#insert-mode)
 * [Shortcuts, tips & tricks](#shortcuts-tips--tricks)
-  * [Core](#core)
+  * [Macros](#macros)
+  * [Core commands](#core-commands)
+  * [Spell check](#spell-check)
   * [Advanced](#advanced)
 
 <!-- vim-markdown-toc -->
@@ -78,6 +77,7 @@
 | n/a             | `<Ctrl>d` or `u` | Normal  | Scoll Up or Down and center the cursor                        |
 | n/a             | `>` or `<`       | N,V     | Indent Right / Left                                           |
 | n/a             | `<Ctrl>j` or `k` | N,V,X   | Move selected line or block Up / down                         |
+| n/a             | `Q`              | N, X    | Macro - remapping of 'Q' for smarter exec.                    |
 | n/a             | `<Ctrl>hjkl`     | Normal  | Split - Select split screen (hjkl)                            |
 | n/a             | `<Option>hjkl`   | Normal  | Split - resize vertical & horizontal                          |
 | n/a             | `<leader>sv`     | Normal  | Split - [s]plit [v]ertical                                    |
@@ -350,7 +350,25 @@ Enter in <b>Command</b> mode by typing ':'
 
 ## Shortcuts, tips & tricks
 
-### Core
+### Macros
+
+- `q{0-9a-zA-Z"}`: Record into a particular register
+- `q`: Stop recording
+- `@{0-9a-z".=*+}`: Execute the content of the register
+- `@@`: Repeat the previous @{0-9a-z":\*}
+- `Q`: Repeat the last recorded register
+
+It is recommended to being with `_` or `^` when recording to start at the
+beginning of the line and ease the execution of the recorded macro
+
+In visual mode,
+
+- Select the text section
+- `:'<,'>norm @q` to execute the macro stored in `q` register
+
+Recording a macro can be recursive
+
+### Core commands
 
 - `:Lazy`: Plugins management
 - `:Mason`: LSP, Linter, Formater, DAP installer
@@ -358,6 +376,15 @@ Enter in <b>Command</b> mode by typing ':'
 - `:InspectTree`: Treesitter inspection tree
 - `:TOhtml`: Convert buffer into html incl. color scheme
 - `:GenTocGFM`: Markdown table of content generation
+
+### Spell check
+
+- `]s` or `[s`: Go to the next or previous spellcheck error
+- `zg`: Add word under the cursor as good word
+- `zug`: Undo `zg`
+- `z=`: Open suggestion list for the word under the cursor
+- `C-x s`: Same as `z=` but in insert mode
+- `spellr`: Repeat the replacement done by `z=`
 
 ### Advanced
 

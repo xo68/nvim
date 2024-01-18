@@ -5,6 +5,10 @@ vim.g.mapleader = " "
 -- MacBook Swiss Keyboard remapping, test mac key with $sed -n l
 keymap.set("n", "è", "<C-]>", { desc = "CTRL-] to navigate in documentation (Swiss key) " })
 
+-- Macros (When macro is stored in register in 'q')
+keymap.set("n", "Q", "@qj", { desc = "Macro - Remapping of 'Q'" })
+keymap.set("x", "Q", ":norm @q<cr>", { desc = "Macro - Remapping of 'Q'" })
+
 -- Show colum 80
 keymap.set("n", "<leader>cc", ":set colorcolumn=80<cr>", { desc = "set option - [c]olor [c]olumn = 80" })
 keymap.set("n", "<leader>cC", ":set colorcolumn=0<cr>", { desc = "set option - [c]olor [c]olumn = 0" })

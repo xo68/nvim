@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- Turn on spell check
+opt.spelllang = "en_us"
+opt.spell = true
+
 -- Core settings
 -- opt.colorcolumn = "80"
 opt.textwidth = 80
