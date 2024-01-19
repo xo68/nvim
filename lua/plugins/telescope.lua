@@ -11,6 +11,7 @@ return {
 	dependencies = {
 		"benfowler/telescope-luasnip.nvim",
 		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-symbols.nvim",
 	},
 
 	config = function()
@@ -41,6 +42,7 @@ return {
 			":Telescope grep_string <cr>",
 			{ desc = "Telescope: [f]ind [G]rep word under cursor (workspace)" }
 		)
+		keymap.set("n", "<leader>fe", ":Telescope symbols <cr>", { desc = "Telescope: [f]ind [E]mojis & symbols" })
 		keymap.set("n", "<leader>fb", ":Telescope buffers <cr>", { desc = "Telescope: [f]ind [b]uffers" })
 		keymap.set("n", "<leader>fh", ":Telescope help_tags <cr>", { desc = "Telescope: [f]ind [h]elp" })
 		keymap.set("n", "<leader>fo", ":Telescope oldfiles <cr>", { desc = "Telescope: [f]ind [o]ld files / History" })

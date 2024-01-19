@@ -7,7 +7,7 @@
 
 </div>
 
-## Objectives
+## 🛡️Objectives
 
 <img align="right" width="40%" src="examples/capture_main.jpg" alt="Screenshot">
 
@@ -15,7 +15,7 @@
 - Make it available for re-use and learning purpose
 - Keep track of my NeoVim journey
 
-## Backlog / Todo
+## 😓 Backlog / Todo
 
 - copilot & chatgpt
 - git worktree & Telescope integration + fugitive
@@ -27,7 +27,7 @@
   - Telescope finds sent to quickfix
 - Explore advanced nvim cmd line utilities & tools
 
-## Sample of key plugins
+## ⏭️ Sample of key plugins
 
 - Lazy (Plugins manager for NeoVim)
 - Mason (Plugins manager for Linter, LSP, DAP, etc.)
@@ -39,17 +39,17 @@
 - nvim-lspconfig, nvim-cmp
 - and much more...
 
-## Table of contents
+## 📘 Table of contents
 
 **[Shortcuts, tips & tricks](#shortcuts-tips--tricks) are at the end of this file**
 
 <!-- vim-markdown-toc GFM -->
 
-* [My custom configuration](#my-custom-configuration)
+* [🧱 My custom configuration](#-my-custom-configuration)
   * [NvimTree specific](#nvimtree-specific)
   * [CMP Specific (completion)](#cmp-specific-completion)
   * [Telescope Specific (Fuzzy Finder)](#telescope-specific-fuzzy-finder)
-* [My cheat sheet (Standard Vim / Nvim)](#my-cheat-sheet-standard-vim--nvim)
+* [🌟 My cheat sheet (Standard Vim / Nvim)](#-my-cheat-sheet-standard-vim--nvim)
   * [Mode switching](#mode-switching)
   * ['Command' mode](#command-mode)
   * ['Normal' mode - Navigation](#normal-mode---navigation)
@@ -57,7 +57,7 @@
   * ['Normal' mode - Split](#normal-mode---split)
   * ['Normal' mode 'g' shortcuts](#normal-mode-g-shortcuts)
   * ["Insert" Mode](#insert-mode)
-* [Shortcuts, tips & tricks](#shortcuts-tips--tricks)
+* [📝 Shortcuts, tips & tricks](#-shortcuts-tips--tricks)
   * [Macros](#macros)
   * [Core commands](#core-commands)
   * [Spell check](#spell-check)
@@ -65,7 +65,7 @@
 
 <!-- vim-markdown-toc -->
 
-## My custom configuration
+## 🧱 My custom configuration
 
 - \<Leader> is mapped to space bar
 - \<Option> is the macbook option key
@@ -110,6 +110,7 @@
 | Telescope       | `<leader>fh`     | Normal  | Telescope: [f]ind [h]elp                                      |
 | Telescope       | `<leader>fo`     | Normal  | Telescope: [f]ind [o]ld files / History                       |
 | Telescope       | `<leader>fl`     | Normal  | Telescope: [f]ind [l]anguage snippets (buffer)                |
+| Telescope       | `<leader>fe`     | Normal  | Telescope: [f]ind [E]mojis & symbols                          |
 | Maximizer       | `<leader>m`      | Normal  | Maximizer - [m]ax/[m]in splitview                             |
 | Markdown        | `<leader>Ms`     | Normal  | Markdown: [M]arkdowm preview [s]tart (buffer)                 |
 | Markdown        | `<leader>MS`     | Normal  | Markdown: [M]arkdowm preview [S]tart (buffer)                 |
@@ -197,7 +198,7 @@ Navigation and interaction with Telescope (mainly default settings)
 - Ctrl-q = Move selected items in quickfix list</br>
 - Enter = confirm</br>
 
-## My cheat sheet (Standard Vim / Nvim)
+## 🌟 My cheat sheet (Standard Vim / Nvim)
 
 This is not yet another manual or cheat sheet.</br>
 The goal is to maintain here the shortcuts that I'm frequently using.
@@ -350,7 +351,7 @@ Enter in <b>Command</b> mode by typing ':'
 | -------------------- | -------------------------------- |
 | `<Ctrl-o> {Command}` | Execute a command in Insert mode |
 
-## Shortcuts, tips & tricks
+## 📝 Shortcuts, tips & tricks
 
 ### Macros
 
