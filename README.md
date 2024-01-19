@@ -151,6 +151,8 @@
 | Trouble         | `<leader>xd`     | Normal  | Trouble - [x] Toggle [d]ocument diagnostics                   |
 | Trouble         | `<leader>xq`     | Normal  | Trouble - [x] Toggle [q]uickfix list                          |
 | Trouble         | `<leader>xl`     | Normal  | Trouble - [x] Toggle [l]oc list                               |
+| Copilot         | `<Ctrl-c>`       | Insert  | Copilot - Accept suggestion                                   |
+| Copilot         | `<Ctrl-x\|v>`    | Insert  | Copilot - previous or next suggestion                         |
 
 ### NvimTree specific
 
