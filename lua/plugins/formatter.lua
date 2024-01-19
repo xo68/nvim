@@ -8,7 +8,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				go = { "gofmt", "golines" },
+				go = { "gofmt", "goimports-reviser", "golines" },
 				c = { "clang_format" },
 				markdown = { "prettier" },
 				-- Conform will run multiple formatters sequentially

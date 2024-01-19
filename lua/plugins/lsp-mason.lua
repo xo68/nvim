@@ -44,6 +44,11 @@ return {
 					"cpplint", -- lint c / c++
 					"golangci-lint", -- lint go
 					"luacheck", -- lint lua
+					"gomodifytags",
+					"iferr",
+					"impl",
+					"gotests",
+					"goimports-reviser", -- format go smart import
 					"golines", -- format go
 					"gofumpt", -- format go
 					"stylua", -- format lua
