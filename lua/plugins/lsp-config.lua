@@ -21,10 +21,10 @@ return {
 			local opts = { noremap = true, silent = true }
 			local keymap = vim.keymap
 			local util = require("lspconfig/util")
-			local handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
-				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
-			}
+			-- local handlers = {
+			-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+			-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+			-- }
 
 			neodev.setup({})
 
@@ -193,6 +193,12 @@ return {
 						},
 					},
 				},
+			})
+
+			lspconfig["cucumber_language_server"].setup({
+				handlers = handlers,
+				on_attach = on_attach,
+				capabilities = capabilities,
 			})
 		end,
 	},

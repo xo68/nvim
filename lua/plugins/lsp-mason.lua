@@ -57,6 +57,7 @@ return {
 					"prettier", -- markdown
 					"black", -- format python
 					"clang-format", -- format python
+					"cucumber_language_server", -- cucumber
 				},
 				auto_update = false,
 				run_on_start = true,

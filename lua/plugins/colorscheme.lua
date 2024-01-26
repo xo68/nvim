@@ -1,5 +1,36 @@
 return {
 	{
+
+		"ellisonleao/gruvbox.nvim",
+		config = function()
+			require("gruvbox").setup({
+				terminal_colors = true, -- add neovim terminal colors
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = {
+					strings = true,
+					emphasis = true,
+					comments = true,
+					operators = false,
+					folds = true,
+				},
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				invert_intend_guides = false,
+				inverse = true, -- invert background for search, diffs, statuslines and errors
+				contrast = "hard", -- can be "hard", "soft" or empty string
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = false,
+			})
+		end,
+	},
+
+	{
 		"navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
@@ -75,9 +106,9 @@ return {
 				overrides = function(colors) -- add/modify highlights
 					local theme = colors.theme
 					return {
-						NormalFloat = { bg = "none" },
-						FloatBorder = { bg = "none" },
-						FloatTitle = { bg = "none" },
+						-- NormalFloat = { bg = "none" },
+						-- FloatBorder = { bg = "none" },
+						-- FloatTitle = { bg = "none" },
 
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
@@ -85,12 +116,12 @@ return {
 						NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
-						LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-						PmenuSbar = { bg = theme.ui.bg_m1 },
-						PmenuThumb = { bg = theme.ui.bg_p2 },
+						-- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						-- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						-- PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+						-- PmenuSbar = { bg = theme.ui.bg_m1 },
+						-- PmenuThumb = { bg = theme.ui.bg_p2 },
 					}
 					-- return {}
 				end,
@@ -100,14 +131,12 @@ return {
 					light = "lotus",
 				},
 			})
-			vim.cmd("colorscheme kanagawa-wave")
 			vim.opt.laststatus = 3
 			vim.cmd([[highlight winseparator guibg=none]])
 			vim.cmd([[highlight winseparator guifg=white]])
 		end,
 	},
 	{
-
 		"rose-pine/neovim",
 		config = function()
 			require("rose-pine").setup({
@@ -115,10 +144,10 @@ return {
 				variant = "moon",
 				--- @usage 'main'|'moon'|'dawn'
 				dark_variant = "moon",
-				bold_vert_split = false,
+				bold_vert_split = true,
 				dim_nc_background = false,
 				disable_background = false,
-				disable_float_background = true,
+				disable_float_background = false,
 				disable_italics = true,
 			})
 			-- set colorscheme after options
@@ -139,7 +168,7 @@ return {
 		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup({
-				transparent_background = true,
+				transparent_background = false,
 				terminal_colors = true,
 				devicons = true, -- highlight the icons of `nvim-web-devicons`
 				styles = {

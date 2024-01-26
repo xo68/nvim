@@ -47,10 +47,10 @@ return {
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
-			window = {
-				completion = cmp.config.window.bordered({ border = "single" }),
-				documentation = cmp.config.window.bordered({ border = "single" }),
-			},
+			-- window = {
+			-- 	completion = cmp.config.window.bordered({ border = "single" }),
+			-- 	documentation = cmp.config.window.bordered({ border = "single" }),
+			-- },
 
 			snippet = {
 				expand = function(args)

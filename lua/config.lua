@@ -60,6 +60,7 @@ vim.diagnostic.config({
 	},
 	float = {
 		source = "always",
-		border = "single",
+		-- border = "single",
 	},
 })
+

@@ -7,7 +7,7 @@ return {
 				prompts = {
 					-- Code related prompts
 					Explain = "Please explain how the following code works",
-					Review = "Pleaseprovide suggestions for improvement",
+					Review = "Please provide suggestions for improvement",
 					Tests = "Please generate unit tests",
 					Refactor = "Please refactor the following code to improve its clarity and readability.",
 					-- Text related prompts

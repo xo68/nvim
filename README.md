@@ -154,6 +154,14 @@
 | Trouble         | `<leader>xl`     | Normal  | Trouble - [x] Toggle [l]oc list                               |
 | Copilot         | `<Ctrl-c>`       | Insert  | Copilot - Accept suggestion                                   |
 | Copilot         | `<Ctrl-x\|v>`    | Insert  | Copilot - previous or next suggestion                         |
+| Copilot         | `<leader>ae`     | Normal  | Copilot - [a]ssist [e]xplain code                             |
+| Copilot         | `<leader>at`     | Normal  | Copilot - [a]ssist generate [t]ests                           |
+| Copilot         | `<leader>ar`     | Normal  | Copilot - [a]ssist [r]eview code                              |
+| Copilot         | `<leader>aR`     | Normal  | Copilot - [a]ssist [R]efactor code                            |
+| Copilot         | `<leader>as`     | Normal  | Copilot - [a]ssist [s]ummarize text                           |
+| Copilot         | `<leader>aw`     | Normal  | Copilot - [a]ssist improve [w]ording                          |
+| Copilot         | `<leader>ac`     | Normal  | Copilot - [a]ssist [c]orrect spelling                         |
+| Copilot         | `<leader>aC`     | Normal  | Copilot - [a]ssist make text [c]oncise                        |
 
 ### NvimTree specific
 
@@ -379,6 +387,8 @@ Recording a macro can be recursive
 - `:InspectTree`: Treesitter inspection tree
 - `:TOhtml`: Convert buffer into html incl. color scheme
 - `:GenTocGFM`: Markdown table of content generation
+- `:CopilotChat ...`: Execute copilot command against yanked text in current
+  buffer
 
 ### Spell check
 
