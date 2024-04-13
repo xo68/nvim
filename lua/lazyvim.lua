@@ -12,3 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ import = "plugins" })
 vim.cmd.colorscheme("kanagawa")
+vim.opt.laststatus = 3
+vim.cmd([[highlight winseparator guibg=none]])
+vim.cmd([[highlight winseparator guifg=white]])

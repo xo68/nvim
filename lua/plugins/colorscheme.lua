@@ -1,6 +1,9 @@
 return {
-	{
 
+	{
+		"sainnhe/gruvbox-material",
+	},
+	{
 		"ellisonleao/gruvbox.nvim",
 		config = function()
 			require("gruvbox").setup({
@@ -29,7 +32,6 @@ return {
 			})
 		end,
 	},
-
 	{
 		"navarasu/onedark.nvim",
 		config = function()
@@ -77,7 +79,6 @@ return {
 	},
 
 	{
-
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({
@@ -88,7 +89,7 @@ return {
 				keywordStyle = { bold = false, italic = false },
 				statementStyle = { bold = false, italic = false },
 				typeStyle = {},
-				transparent = false, -- do not set background color
+				transparent = true, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
@@ -106,9 +107,9 @@ return {
 				overrides = function(colors) -- add/modify highlights
 					local theme = colors.theme
 					return {
-						-- NormalFloat = { bg = "none" },
-						-- FloatBorder = { bg = "none" },
-						-- FloatTitle = { bg = "none" },
+						NormalFloat = { bg = "none" },
+						FloatBorder = { bg = "none" },
+						FloatTitle = { bg = "none" },
 
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
@@ -116,12 +117,19 @@ return {
 						NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
-						-- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						-- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-						-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-						-- PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-						-- PmenuSbar = { bg = theme.ui.bg_m1 },
-						-- PmenuThumb = { bg = theme.ui.bg_p2 },
+						LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+						PmenuSbar = { bg = theme.ui.bg_m1 },
+						PmenuThumb = { bg = theme.ui.bg_p2 },
+						TelescopeTitle = { fg = theme.ui.special, bold = true },
+						TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+						TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+						TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+						-- TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+						-- TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+						-- TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
 					}
 					-- return {}
 				end,
@@ -131,9 +139,6 @@ return {
 					light = "lotus",
 				},
 			})
-			vim.opt.laststatus = 3
-			vim.cmd([[highlight winseparator guibg=none]])
-			vim.cmd([[highlight winseparator guifg=white]])
 		end,
 	},
 	{
@@ -155,12 +160,12 @@ return {
 			vim.opt.laststatus = 3
 			vim.cmd([[highlight winseparator guibg=none]])
 			vim.cmd([[highlight winseparator guifg=white]])
-			-- local lgrey = "#434343"
-			-- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3B4252", fg = "#5E81AC" })
-			-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = lgrey })
-			-- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = lgrey })
-			-- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = lgrey })
-			-- vim.api.nvim_set_hl(0, "PMenu", { bg = lgrey })
+			local lgrey = "#434343"
+			vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3B4252", fg = "#5E81AC" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = lgrey })
+			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = lgrey })
+			vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = lgrey })
+			vim.api.nvim_set_hl(0, "PMenu", { bg = lgrey })
 		end,
 	},
 	{
@@ -373,13 +378,6 @@ return {
 					-- for more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
 			})
-
-			-- setup must be called before loading
-			-- vim.cmd.colorscheme("catppuccin-mocha")
-			-- vim.cmd.colorscheme("catppuccin-macchiato")
-			vim.opt.laststatus = 3
-			vim.cmd([[highlight winseparator guibg=none]])
-			vim.cmd([[highlight winseparator guifg=white]])
 		end,
 	},
 }

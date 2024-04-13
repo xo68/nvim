@@ -5,7 +5,6 @@ opt.spelllang = "en_us"
 opt.spell = true
 
 -- Core settings
--- opt.colorcolumn = "80"
 opt.textwidth = 80
 opt.laststatus = 3
 opt.tabstop = 4
@@ -14,8 +13,11 @@ opt.smarttab = true
 opt.shiftwidth = 4
 opt.scrolloff = 8 -- Limit scrolling and always try keep 8 lines
 opt.sidescrolloff = 8 -- Limit scrolling and always try keep 8 lines
-opt.updatetime = 50
+opt.updatetime = 250
 opt.mouse = "a"
+
+-- Copy / Paste in OS clipboard
+opt.clipboard = "unnamedplus"
 
 -- Show indent - Why would we need a plugin for that ? :)
 opt.list = true
@@ -25,7 +27,7 @@ opt.listchars:append("leadmultispace:┊   ")
 opt.listchars:append("trail:·,")
 
 -- Enable bunch of good stuffs
-opt.title = false
+opt.hlsearch = true -- highlights of search -> Can be disabled with a shortcut
 opt.swapfile = true
 opt.number = true
 opt.relativenumber = true
@@ -47,8 +49,17 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Disable few stuffs
+opt.title = false
 opt.wrap = false
-opt.hlsearch = false --No highlights of search
+
+-- Highlight yank section
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
 
 -- Diagnostic rendering & options
 vim.diagnostic.config({
@@ -60,7 +71,6 @@ vim.diagnostic.config({
 	},
 	float = {
 		source = "always",
-		-- border = "single",
+		border = "single",
 	},
 })
-

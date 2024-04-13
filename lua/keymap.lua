@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 -- MacBook Swiss Keyboard remapping, test mac key with $sed -n l
 keymap.set("n", "è", "<C-]>", { desc = "CTRL-] to navigate in documentation (Swiss key) " })
 
+-- hlsearch, disable all highlighted resutls
+keymap.set("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Clean-up hihglighted searches" })
+
 -- Macros (When macro is stored in register in 'q')
 keymap.set("n", "Q", "@qj", { desc = "Macro - Remapping of 'Q'" })
 keymap.set("x", "Q", ":norm @q<cr>", { desc = "Macro - Remapping of 'Q'" })

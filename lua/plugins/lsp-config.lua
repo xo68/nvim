@@ -21,11 +21,10 @@ return {
 			local opts = { noremap = true, silent = true }
 			local keymap = vim.keymap
 			local util = require("lspconfig/util")
-			-- local handlers = {
-			-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
-			-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
-			-- }
-
+			local handlers = {
+				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+			}
 			neodev.setup({})
 
 			local on_attach = function(client, bufnr)
@@ -36,7 +35,7 @@ return {
 				keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
 				opts.desc = "LSP - [g]o to [D]eclaration"
-				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration (e.g. Header in C)
 
 				opts.desc = "LSP - [g]o [d]efinitions (Show definitions)"
 				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
