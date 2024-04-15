@@ -38,7 +38,7 @@ return {
 			require("onedark").setup({
 				-- Main options --
 				style = "darker", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-				transparent = false, -- Show/hide background
+				transparent = true, -- Show/hide background
 				term_colors = true, -- Change terminal color as per the selected theme style
 				ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -89,8 +89,8 @@ return {
 				keywordStyle = { bold = false, italic = false },
 				statementStyle = { bold = false, italic = false },
 				typeStyle = {},
-				transparent = true, -- do not set background color
-				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+				transparent = false, -- do not set background color
+				dimInactive = true, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
 					palette = {},
@@ -124,7 +124,7 @@ return {
 						PmenuSbar = { bg = theme.ui.bg_m1 },
 						PmenuThumb = { bg = theme.ui.bg_p2 },
 						TelescopeTitle = { fg = theme.ui.special, bold = true },
-						TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+						TelescopePromptNormal = { bg = theme.ui.bg_dim },
 						TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
 						TelescopePreviewNormal = { bg = theme.ui.bg_dim },
 						-- TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
@@ -149,79 +149,28 @@ return {
 				variant = "moon",
 				--- @usage 'main'|'moon'|'dawn'
 				dark_variant = "moon",
-				bold_vert_split = true,
-				dim_nc_background = false,
-				disable_background = false,
-				disable_float_background = false,
-				disable_italics = true,
-			})
-			-- set colorscheme after options
-			-- vim.cmd("colorscheme rose-pine-moon")
-			vim.opt.laststatus = 3
-			vim.cmd([[highlight winseparator guibg=none]])
-			vim.cmd([[highlight winseparator guifg=white]])
-			local lgrey = "#434343"
-			vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3B4252", fg = "#5E81AC" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = lgrey })
-			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = lgrey })
-			vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = lgrey })
-			vim.api.nvim_set_hl(0, "PMenu", { bg = lgrey })
-		end,
-	},
-	{
-		-- "tanvirtin/monokai.nvim",
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup({
-				transparent_background = false,
-				terminal_colors = true,
-				devicons = true, -- highlight the icons of `nvim-web-devicons`
-				styles = {
-					comment = { italic = true },
-					keyword = { italic = false }, -- any other keyword
-					type = { italic = false }, -- (preferred) int, long, char, etc
-					storageclass = { italic = false }, -- static, register, volatile, etc
-					structure = { italic = false }, -- struct, union, enum, etc
-					parameter = { italic = false }, -- parameter pass in function
-					annotation = { italic = true },
-					tag_attribute = { italic = false }, -- attribute of tag in reactjs
-				},
-				filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-				-- Enable this will disable filter option
-				day_night = {
-					enable = false, -- turn off by default
-					day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-					night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
-				},
-				inc_search = "background", -- underline | background
-				background_clear = {
-					"float_win",
-					-- "toggleterm",
-					"telescope",
-					-- "which-key",
-					-- "renamer",
-					-- "notify",
-					"nvim-tree",
-					-- "neo-tree",
-					-- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
-				}, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
-				plugins = {
-					bufferline = {
-						underline_selected = false,
-						underline_visible = false,
-					},
-					indent_blankline = {
-						context_highlight = "default", -- default | pro
-						context_start_underline = false,
-					},
-				},
-				---@param c Colorscheme
-				override = function(c) end,
-			})
-			-- vim.cmd("colorscheme monokai-pro")
-		end,
-	},
+				-- bold_vert_split = true,
+				-- dim_nc_background = false,
+				-- disable_background = true,
+				-- disable_float_background = true,
 
+				enable = {
+					terminal = true,
+					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+					migrations = true, -- Handle deprecated options automatically
+				},
+
+				styles = {
+					bold = true,
+					italic = false,
+					transparency = false,
+				},
+			})
+
+			-- set colorscheme after options
+			vim.cmd("colorscheme rose-pine-moon")
+		end,
+	},
 	{
 		"edeneast/nightfox.nvim",
 		config = function()
@@ -230,7 +179,7 @@ return {
 					-- Compiled file's destination location
 					compile_path = vim.fn.stdpath("cache") .. "/nightfox",
 					compile_file_suffix = "_compiled", -- Compiled file suffix
-					transparent = false,
+					transparent = true,
 					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
 					dim_inactive = false, -- Non focused panes set to alternative background
 					module_default = true, -- Default enable value for modules
@@ -289,7 +238,7 @@ return {
 				-- or leave it empty to use the default settings
 				style = "night", -- the theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 				light_style = "day", -- the theme is used when the background is set to light
-				transparent = false,
+				transparent = true,
 				terminal_colors = true, -- configure the colors used when opening a `:terminal` in [neovim](https://github.com/neovim/neovim)
 				styles = {
 					-- style to be applied to different syntax groups
@@ -337,7 +286,7 @@ return {
 					light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = false, -- disables setting the background color.
+				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 				term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				dim_inactive = {

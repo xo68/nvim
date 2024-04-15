@@ -8,6 +8,11 @@ keymap.set("n", "è", "<C-]>", { desc = "CTRL-] to navigate in documentation (Sw
 -- hlsearch, disable all highlighted resutls
 keymap.set("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Clean-up hihglighted searches" })
 
+-- QuickFix shortcuts
+keymap.set("n", "<leader>qo", ":copen<CR>", { desc = "QuickFix - [o]pen" })
+keymap.set("n", "<leader>qn", ":cnext<CR>", { desc = "QuickFix - [n]ext item" })
+keymap.set("n", "<leader>qp", ":cprevious<CR>", { desc = "QuickFix - [p]revious item" })
+
 -- Macros (When macro is stored in register in 'q')
 keymap.set("n", "Q", "@qj", { desc = "Macro - Remapping of 'Q'" })
 keymap.set("x", "Q", ":norm @q<cr>", { desc = "Macro - Remapping of 'Q'" })

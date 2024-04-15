@@ -84,8 +84,9 @@ return {
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						["<C-u>"] = actions.preview_scrolling_up,
 						["<C-d>"] = actions.preview_scrolling_down,
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						-- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-n>"] = actions.cycle_history_next,
 						["<C-p>"] = actions.cycle_history_prev,
 						["<C-c>"] = actions.close,
@@ -106,12 +107,13 @@ return {
 						["<C-t>"] = actions.select_tab, -- Open in a new tab
 						["<C-u>"] = actions.preview_scrolling_up,
 						["<C-d>"] = actions.preview_scrolling_down,
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 
 						["<esc>"] = actions.close,
 						["<CR>"] = actions.select_default,
 						["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 						["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+						-- ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["j"] = actions.move_selection_next,
 						["k"] = actions.move_selection_previous,

@@ -94,6 +94,9 @@
 | n/a             | `<leader>bp`     | Normal  | Buffer - [b]uffer [l]ist (Telescope)                          |
 | n/a             | `<leader>cc`     | Normal  | set option - [c]olor [c]olumn = 80                            |
 | n/a             | `<leader>cC`     | Normal  | set option - [c]olor [c]olumn = 0                             |
+| n/a             | `<leader>qo`     | Normal  | QuickFix - [o]pen                                             |
+| n/a             | `<leader>qn`     | Normal  | QuickFix - [n]ext item                                        |
+| n/a             | `<leader>qp`     | Normal  | QuickFix - [p]revious item                                    |
 | Nvim-Tree       | `<leader>ee`     | Normal  | NvimTree - [e]xplorer Toggle                                  |
 | Nvim-Tree       | `<leader>ef`     | Normal  | NvimTree - [e]xplorer Toggle current [f]ile location          |
 | Nvim-Tree       | `<leader>er`     | Normal  | NvimTree - [e]xplorer [r]efresh                               |
@@ -203,7 +206,7 @@ Navigation and interaction with Telescope (mainly default settings)
 - Ctrl-k / Ctrl-l = Scroll up/down</br>
 - Ctrl-u / Ctrl-d = Scroll up/down for preview</br>
 - \<Tab> & \<S-Tab> = Scroll up/down and Select</br>
-- Ctrl-q = Move selected items in quickfix list</br>
+- Ctrl-q = Move current results in quickfix list</br>
 - Enter = confirm</br>
 
 ## 🌟 My cheat sheet (Standard Vim / Nvim)
